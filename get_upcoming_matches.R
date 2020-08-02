@@ -40,6 +40,58 @@ for (i in new_matches) {
 upcoming_matches <- upcoming_matches[-1,]
 upcoming_matches$date <- as.Date(upcoming_matches$date,format="%d.%m.%Y")
 
+for (i in 1:nrow(upcoming_matches)) {
+  
+  if (upcoming_matches$team_home_ranking[i] > 10) {
+    upcoming_matches$team_home_ranking[i] <- NA
+    
+  } 
+  
+  if (is.na(upcoming_matches$team_home_ranking[i]) == TRUE) {
+    
+    selection <- upcoming_matches[upcoming_matches$team_home == upcoming_matches$team_home[i] | 
+                                    upcoming_matches$team_away == upcoming_matches$team_home[i],]
+    
+    selection <- selection[!is.na(selection$team_away_ranking),]
+    selection <- selection[nrow(selection),]
+    
+    if (selection$team_home == upcoming_matches$team_home[i]) {
+      
+      upcoming_matches$team_home_ranking[i] <- selection$team_home_ranking 
+      
+      
+    } else {
+      
+      upcoming_matches$team_home_ranking[i] <- selection$team_away_ranking
+      
+    } 
+    
+  }
+  
+  if (is.na(upcoming_matches$team_away_ranking[i]) == TRUE) {
+    
+    selection <- upcoming_matches[upcoming_matches$team_away == upcoming_matches$team_away[i] | 
+                                    upcoming_matches$team_home == upcoming_matches$team_away[i],]
+    
+    selection <- selection[!is.na(selection$team_away_ranking),]
+    selection <- selection[nrow(selection),]
+    
+    if (selection$team_away == upcoming_matches$team_away[i]) {
+      
+      upcoming_matches$team_away_ranking[i] <- selection$team_away_ranking 
+      
+      
+    } else {
+      
+      upcoming_matches$team_away_ranking[i] <- selection$team_home_ranking
+      
+    } 
+    
+  }
+  
+  
+}
+
 #Add form data
 upcoming_matches$points_home <- NA
 upcoming_matches$points_away <- NA
