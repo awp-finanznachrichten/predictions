@@ -92,13 +92,11 @@ leaderboard_new <- leaderboard_new[,c(1,14,18,4:10)]
 #Load new data in database
 mydb <- dbConnect(MySQL(), user='Administrator', password='tqYYDcqx43', dbname='football_data', host='33796.hostserv.eu', encoding="utf8")
 
-
-
-#DE-Datenbank einlesen
-
+#Empty current database
 sql_qry <- "TRUNCATE TABLE football_data.leaderboard_btr"
 rs <- dbSendQuery(mydb, sql_qry)
 
+#Load new data
 sql_qry <- "INSERT INTO leaderboard_btr(email,name,twitter,wins,losses,ties,correct_guesses,wrong_guesses,accuracy,rounds_played) VALUES"
 
 
@@ -122,5 +120,11 @@ rs <- dbSendQuery(mydb, sql_qry)
 
 dbDisconnectAll()
 
+#Save leaderboard as csv for Datawrapper
+leaderboard_dw <- leaderboard_new[,c(2,4:10)]
+leaderboard_dw <- leaderboard_dw[order(-leaderboard_dw$wins),]
+write.csv(leaderboard_dw,file="Output/Leaderboard_BeatTheRobot.csv",row.names = FALSE, fileEncoding = "UTF-8")
+
 #Create performance sheet of SwissFootyBot
+
 
