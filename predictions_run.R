@@ -15,8 +15,8 @@ source("get_new_data.R", encoding = "UTF-8")
 #Scrape upcoming matches
 source("get_upcoming_matches.R", encoding = "UTF-8")
 
-
 #Predict next round
-str(upcoming_matches)
+source("predict_next_round.R")
 
 #Predict season
+source("predict_season.R")

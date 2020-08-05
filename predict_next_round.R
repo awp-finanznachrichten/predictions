@@ -36,12 +36,14 @@ colnames(predictions_next_game) <- c("match","win home team","draw","win away te
 
 
 #New games
-matches <- paste0(upcoming_matches$team_home,"-",upcoming_matches$team_away)
-new_games <- upcoming_matches[,c(4:5,12:21)]
+next_round <- upcoming_matches[1:5,]
+matches <- paste0(next_round$team_home,"-",next_round$team_away)
+new_games <- next_round[,c(4:5,12:21)]
 
 
 for (i in 1:50) {
-# Train the model 
+
+  # Train the model 
 regr <- randomForest(x = X, y = y, maxnodes = 250, ntree = 1100, type="prob")
 print(regr)
 
