@@ -20,3 +20,6 @@ source("predict_next_round.R")
 
 #Predict season
 source("predict_season.R")
+
+###Beat the robot
+View(data_rf)

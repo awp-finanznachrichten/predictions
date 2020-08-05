@@ -1,0 +1,6 @@
+"What is your name?","wins","losses","ties","correct_guesses","wrong_guesses","accuracy","rounds_played"
+"Roger Federer",0,3,0,6,9,0.4,3
+"Heinz Müller",0,3,0,0,15,0,3
+"Max Mustermann",0,3,0,3,12,0.2,3
+"Spongebob Schwammkopf",0,3,0,3,12,0.2,3
+"Simon Wolanin",2,4,4,12,12,0.5,3

@@ -18,10 +18,15 @@ data_transfermarkt[data_transfermarkt == 999] <- NA
 
 #Target variable
 data_transfermarkt$target <- data_transfermarkt$points_home
-data_transfermarkt$target <- gsub(3,"win",data_transfermarkt$target)
+data_transfermarkt$target <- gsub(3,"win home",data_transfermarkt$target)
 data_transfermarkt$target <- gsub(1,"draw",data_transfermarkt$target)
-data_transfermarkt$target <- gsub(0,"loss",data_transfermarkt$target)
+data_transfermarkt$target <- gsub(0,"win away",data_transfermarkt$target)
 data_transfermarkt$target <- as.factor(data_transfermarkt$target)
+
+#Last results
+last_results <- data_transfermarkt[(nrow(data_transfermarkt)-4):nrow(data_transfermarkt),c(4:5,55)]
+last_results$match <- paste0(last_results$team_home,"-",last_results$team_away)
+last_results <- last_results[,c(4,3)]
 
 #Select data
 data_rf <- data_transfermarkt[,c(6:7,37:38,41:42,45:46,49:52,55)]
@@ -99,6 +104,7 @@ for (i in 1:nrow(predictions_next_game)) {
   
 }
 
+View(predictions_next_game)
 predictions_robot <- predictions_next_game[,c(1,5)]
 print(predictions_robot)
 
