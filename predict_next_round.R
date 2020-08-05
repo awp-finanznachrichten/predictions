@@ -72,6 +72,33 @@ predictions_next_game <- predictions_next_game  %>%
   group_by(match) %>% 
   summarise_each(funs(mean))
 
-write.csv(predictions_next_game,file="Output/prediction_next_game.csv",row.names = FALSE, fileEncoding = "UTF-8")
+write.csv(predictions_next_game,file="Output/predictions_upcoming_matches.csv",row.names = FALSE, fileEncoding = "UTF-8")
 
 print(predictions_next_game)
+
+#Predictions for Beat the Robot
+predictions_next_game$`Prediction` <- NA
+
+for (i in 1:nrow(predictions_next_game)) {
+  
+  if ( (predictions_next_game$`win home team`[i] > predictions_next_game$draw[i]) & (predictions_next_game$`win home team`[i] > predictions_next_game$`win away team`[i]) ) {
+
+  predictions_next_game$Prediction[i] <- "win home"
+  
+  } else if (( (predictions_next_game$`win away team`[i] > predictions_next_game$draw[i]) & (predictions_next_game$`win away team`[i] > predictions_next_game$`win home team`[i]) )) { 
+  
+    predictions_next_game$Prediction[i] <- "win away"
+    
+    } else {
+      
+    predictions_next_game$Prediction[i] <- "draw"
+    
+    }  
+  
+}
+
+predictions_robot <- predictions_next_game[,c(1,5)]
+print(predictions_robot)
+
+write.csv(predictions_robot,file="Output/predictions_SwissFootyBot.csv",row.names = FALSE, fileEncoding = "UTF-8")
+
