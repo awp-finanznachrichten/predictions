@@ -11,7 +11,7 @@ for (i in new_matches) {
   team_home <- html_text(html_nodes(webpage,".sb-vereinslink"))[1]
   team_away <- html_text(html_nodes(webpage,".sb-vereinslink"))[3]
   team_home_ranking <- parse_number(html_text(html_nodes(webpage,"p"))[1])
-  team_away_ranking <- parse_number(html_text(html_nodes(webpage,"p"))[5])
+  team_away_ranking <- parse_number(html_text(html_nodes(webpage,"p"))[6]) #Change to 5 again!!!
   
   spieltag <- parse_number(html_text(html_nodes(webpage,".sb-datum"))[2])
   datum <- gsub( ".*(\\d{2}.\\d{2}.\\d{2}).*", "\\1", html_text(html_nodes(webpage,".sb-datum"))[2])
@@ -207,5 +207,12 @@ colnames(market_values_away) <- c("season","team_away","mv_overall_away","mv_ave
 upcoming_matches <- merge(upcoming_matches,market_values_away)
 
 upcoming_matches <- upcoming_matches[,c(1:19,21,24)]
+
+upcoming_matches$threemonths_performance_home <- as.numeric(upcoming_matches$threemonths_performance_home)
+upcoming_matches$threemonths_performance_away <- as.numeric(upcoming_matches$threemonths_performance_away)
+upcoming_matches$year_performance_home <- as.numeric(upcoming_matches$year_performance_home)
+upcoming_matches$year_performance_away <- as.numeric(upcoming_matches$year_performance_away)
+upcoming_matches$overall_performance_home <- as.numeric(upcoming_matches$overall_performance_home)
+upcoming_matches$overall_performance_away <- as.numeric(upcoming_matches$overall_performance_away)
 
 print("data for upcoming matches gathered")

@@ -1,7 +1,7 @@
 source("config.R")
 
 #Recently played matches
-games <- 3197409:3197413
+games <- 3197414:3197418
 
 #Upcoming matches
 new_matches <- 3197414:3197418
@@ -14,3 +14,9 @@ source("get_new_data.R", encoding = "UTF-8")
 
 #Scrape upcoming matches
 source("get_upcoming_matches.R", encoding = "UTF-8")
+
+
+#Predict next round
+str(upcoming_matches)
+
+#Predict season
