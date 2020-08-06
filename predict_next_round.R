@@ -27,6 +27,7 @@ data_transfermarkt$target <- as.factor(data_transfermarkt$target)
 last_results <- data_transfermarkt[(nrow(data_transfermarkt)-4):nrow(data_transfermarkt),c(4:5,55)]
 last_results$match <- paste0(last_results$team_home,"-",last_results$team_away)
 last_results <- last_results[,c(4,3)]
+last_results <- last_results[order(last_results$match),]
 
 #Select data
 data_rf <- data_transfermarkt[,c(6:7,37:38,41:42,45:46,49:52,55)]

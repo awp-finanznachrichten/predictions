@@ -1,6 +1,7 @@
 #Get Tips
 tips <- read_csv("BeatTheRobot/Beat the robot - Round 1 (Antworten) - Formularantworten 1.csv")
 
+
 #Evaluate score of the robot
 compare <- merge(last_results,predictions_robot)
 score_robot <- length(intersect(compare$target,compare$Prediction))
@@ -58,7 +59,23 @@ for (i in 1:nrow(tips)) {
 }  
 
 tips$fail <- 5-tips$score
-  
+
+print(tips)
+
+#Create "Hallo of Fame" with all winners
+hall_of_fame <- data.frame(tips[tips$won == 1,4])
+names(hall_of_fame) <- "What is your name?" 
+
+if (nrow(hall_of_fame) == 0) {
+
+hall_of_fame <- data.frame("Nobody beat SwissFootyBot!")
+names(hall_of_fame) <- "What is your name?" 
+
+}
+
+print(hall_of_fame)
+write.csv(leaderboard_dw,file="Output/HallOfFame_BeatTheRobot.csv",row.names = FALSE, fileEncoding = "UTF-8")
+
 #Get current Leaderboard
 
 mydb <- dbConnect(MySQL(), user='Administrator', password='tqYYDcqx43', dbname='football_data', host='33796.hostserv.eu', encoding="utf8")
@@ -126,5 +143,5 @@ leaderboard_dw <- leaderboard_dw[order(-leaderboard_dw$wins),]
 write.csv(leaderboard_dw,file="Output/Leaderboard_BeatTheRobot.csv",row.names = FALSE, fileEncoding = "UTF-8")
 
 #Create performance sheet of SwissFootyBot
-
+print(leaderboard_dw)
 

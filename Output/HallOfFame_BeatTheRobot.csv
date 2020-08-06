@@ -1,0 +1,7 @@
+"What is your name?","wins","losses","ties","correct_guesses","wrong_guesses","accuracy","rounds_played"
+"Simon Wolanin",2,7,4,18,21,0.461538461538462,6
+"Jesus Christ",1,0,0,5,0,1,1
+"Roger Federer",0,6,0,12,18,0.4,6
+"Heinz Müller",0,6,0,0,30,0,6
+"Max Mustermann",0,6,0,6,24,0.2,6
+"Spongebob Schwammkopf",0,6,0,6,24,0.2,6

@@ -73,3 +73,5 @@ table <- table[order(-table$`round(colMeans(season_prognosis))`),]
 write.csv(table,file="Output/predictions_season.csv",row.names = TRUE, fileEncoding = "UTF-8")
 
 print(table)
+
+View(last_results)
