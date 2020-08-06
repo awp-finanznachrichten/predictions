@@ -74,7 +74,7 @@ names(hall_of_fame) <- "What is your name?"
 }
 
 print(hall_of_fame)
-write.csv(leaderboard_dw,file="Output/HallOfFame_BeatTheRobot.csv",row.names = FALSE, fileEncoding = "UTF-8")
+write.csv(hall_of_fame,file="Output/HallOfFame_BeatTheRobot.csv",row.names = FALSE, fileEncoding = "UTF-8")
 
 #Get current Leaderboard
 
