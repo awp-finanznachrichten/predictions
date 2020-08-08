@@ -22,5 +22,5 @@ source("predict_next_round.R")
 source("predict_season.R")
 
 ###Beat the robot
-round <- "01"
+round <- "03"
 source("beat_the_robot_run.R")

@@ -110,7 +110,9 @@ dbGetQuery(mydb, "SET NAMES 'utf8'")
 rs <- dbSendQuery(mydb, "SELECT * FROM performance_btr")
 performance_robot <- fetch(rs,n=-1, encoding="utf8")
 
+performance_robot <- performance_robot[order(-performance_robot$round),]
 performance_robot$round <- as.character(performance_robot$round)
+
 round_overall <- "all"
 score_overall <- sum(performance_robot$score)
 accuracy_overall <- mean(performance_robot$accuracy)

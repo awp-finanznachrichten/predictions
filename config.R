@@ -13,6 +13,7 @@ library(RMySQL)
 library(dplyr)
 library(RCurl)
 library(httr)
+library(tibble)
 
 ###Funktion Datenbankverbindungen schliessen
 dbDisconnectAll <- function(){
