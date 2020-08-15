@@ -1,3 +1,20 @@
+#Get current data
+mydb <- dbConnect(MySQL(), user='Administrator', password='tqYYDcqx43', dbname='football_data', host='33796.hostserv.eu', encoding="utf8")
+dbGetQuery(mydb, "SET NAMES 'utf8'")
+
+rs <- dbSendQuery(mydb, "SELECT * FROM matches_database")
+matches_database <- fetch(rs,n=-1, encoding="utf8")
+Encoding(matches_database$team_home) <- "UTF-8"
+Encoding(matches_database$team_away) <- "UTF-8"
+Encoding(matches_database$referee) <- "UTF-8"
+
+dbDisconnectAll()
+
+#Transform data
+matches_database$date <- as.Date(matches_database$date)
+matches_database[matches_database == 999] <- NA
+
+
 #New data frame
 upcoming_matches <- data.frame("team_home","team_away",0,0,1,"01.01.1900","99:99","Schiedsrichter")
 colnames(upcoming_matches) <- c("team_home","team_away","team_home_ranking","team_away_ranking",
@@ -11,7 +28,7 @@ for (i in new_matches) {
   team_home <- html_text(html_nodes(webpage,".sb-vereinslink"))[1]
   team_away <- html_text(html_nodes(webpage,".sb-vereinslink"))[3]
   team_home_ranking <- parse_number(html_text(html_nodes(webpage,"p"))[1])
-  team_away_ranking <- parse_number(html_text(html_nodes(webpage,"p"))[6]) #Change to 5 again!!!
+  team_away_ranking <- parse_number(html_text(html_nodes(webpage,"p"))[5]) #Change to 5 again!!!
   
   spieltag <- parse_number(html_text(html_nodes(webpage,".sb-datum"))[2])
   datum <- gsub( ".*(\\d{2}.\\d{2}.\\d{2}).*", "\\1", html_text(html_nodes(webpage,".sb-datum"))[2])
@@ -170,7 +187,13 @@ for (i in (nrow(all_matches)-length(new_matches)):nrow(all_matches)) {
   
 }
 
+#Replace NAs
+for(i in 1:ncol(all_matches)){
+  all_matches[is.na(all_matches[,i]), i] <- mean(all_matches[,i], na.rm = TRUE)
+}
+
 upcoming_matches <- all_matches[(nrow(all_matches)-length(new_matches)+1):nrow(all_matches),]
+
 
 #Add Elo
 upcoming_matches$elo_home <- NA

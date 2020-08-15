@@ -51,14 +51,9 @@ for (i in 1:50) {
 
   # Train the model 
 regr <- randomForest(x = X, y = y, maxnodes = 250, ntree = 1100, type="prob")
-print(regr)
 
 #Predict next games
 prediction_next_game <- predict(regr, new_games, type="prob")
-
-#Predict next games
-prediction_next_game <- predict(regr, new_games, type="prob")
-
 
 prediction_next_game <- cbind(prediction_next_game,matches)
 prediction_next_game <- prediction_next_game[,c(4,3,1,2)]
@@ -105,9 +100,8 @@ for (i in 1:nrow(predictions_next_game)) {
   
 }
 
-View(predictions_next_game)
+
 predictions_robot <- predictions_next_game[,c(1,5)]
 print(predictions_robot)
 
 write.csv(predictions_robot,file="Output/predictions_SwissFootyBot.csv",row.names = FALSE, fileEncoding = "UTF-8")
-
