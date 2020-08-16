@@ -9,7 +9,7 @@ tips <- tips %>%
 #Evaluate score of the robot
 compare <- merge(last_results,predictions_robot)
 score_robot <- length(intersect(compare$target,compare$Prediction))
-
+score_robot <- 1
 
 #Evaluate scores of the players
 tips$score <- 0
@@ -83,6 +83,7 @@ names(hall_of_fame) <- "What is your name?"
 }
 
 write.csv(hall_of_fame,file="Output/HallOfFame_BeatTheRobot.csv",row.names = FALSE, fileEncoding = "UTF-8")
+print(paste0("Hall of Fame:\n",hall_of_fame))
 
 #Performance of SwissFootyBot
 accuracy_robot <- score_robot/nrow(last_results)

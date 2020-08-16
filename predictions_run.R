@@ -4,10 +4,10 @@ source("config.R")
 games <- 3197414:3197418
 
 #Upcoming matches
-new_matches <- 3410845
+new_matches <- 3197414:3197418
 
 #Season and Round
-season <- "20/21"
+season <- "19/20"
 round <- "01"
 
 #Scrape recently played matches
