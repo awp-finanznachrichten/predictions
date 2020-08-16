@@ -82,6 +82,8 @@ names(hall_of_fame) <- "What is your name?"
 
 }
 
+hall_of_fame <- hall_of_fame[order(hall_of_fame$`What is your name?`),]
+
 write.csv(hall_of_fame,file="Output/HallOfFame_BeatTheRobot.csv",row.names = FALSE, fileEncoding = "UTF-8")
 print(paste0("Hall of Fame:\n",hall_of_fame))
 
