@@ -9,13 +9,13 @@ tips <- tips %>%
 #Evaluate score of the robot
 compare <- merge(last_results,predictions_robot)
 score_robot <- length(intersect(compare$target,compare$Prediction))
-score_robot <- 1
 
 #Evaluate scores of the players
 tips$score <- 0
 tips$won <- 0
 tips$lost <- 0
 tips$tie <- 0
+
 
 for (i in 1:nrow(tips)) {
   
@@ -89,7 +89,7 @@ print(paste0("Hall of Fame:\n",hall_of_fame))
 accuracy_robot <- score_robot/nrow(last_results)
 ties_robot <- sum(tips$tie)
 wins_robot <- sum(tips$lost)
-losses_robot <- sum(tips$wins)
+losses_robot <- sum(tips$won)
 
 #Load new data in database
 mydb <- dbConnect(MySQL(), user='Administrator', password='tqYYDcqx43', dbname='football_data', host='33796.hostserv.eu', encoding="utf8")
