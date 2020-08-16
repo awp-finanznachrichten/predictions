@@ -1,10 +1,15 @@
 #Get Tips
 tips <- read_csv("BeatTheRobot/Beat the robot - Round 1 (Antworten) - Formularantworten 1.csv")
 
+#Eliminate double entries
+tips <- tips %>%
+  distinct(`E-Mail-Adresse`, .keep_all=TRUE)
+
 
 #Evaluate score of the robot
 compare <- merge(last_results,predictions_robot)
 score_robot <- length(intersect(compare$target,compare$Prediction))
+
 
 #Evaluate scores of the players
 tips$score <- 0
@@ -60,6 +65,7 @@ for (i in 1:nrow(tips)) {
 
 tips$fail <- 5-tips$score
 
+print(paste0(nrow(tips)," tips detected"))
 print(tips)
 
 #Save data of round
@@ -191,6 +197,4 @@ leaderboard_dw <- leaderboard_new[,c(2,4:10)]
 leaderboard_dw <- leaderboard_dw[order(-leaderboard_dw$wins,-leaderboard_dw$accuracy),]
 write.csv(leaderboard_dw,file="Output/Leaderboard_BeatTheRobot.csv",row.names = FALSE, fileEncoding = "UTF-8")
 
-#Create performance sheet of SwissFootyBot
 print(leaderboard_dw)
-
