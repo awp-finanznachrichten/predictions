@@ -77,7 +77,7 @@ names(hall_of_fame) <- "What is your name?"
 
 if (nrow(hall_of_fame) == 0) {
 
-hall_of_fame <- data.frame("Nobody beat SwissFootyBot!")
+hall_of_fame <- data.frame("Nobody beat SwissFootyBot so far!")
 names(hall_of_fame) <- "What is your name?" 
 
 }
@@ -131,7 +131,6 @@ ties_overall <- sum(performance_robot$ties)
 
 performance_robot <- performance_robot %>%
   add_row(round=round_overall,score=score_overall,accuracy=accuracy_overall,wins=wins_overall,losses=losses_overall,ties=ties_overall,.before=TRUE)
-
 
 write.csv(performance_robot,file="Output/Performance_BeatTheRobot.csv",row.names = FALSE, fileEncoding = "UTF-8")
 print(performance_robot)
@@ -198,6 +197,7 @@ dbDisconnectAll()
 #Save leaderboard as csv for Datawrapper
 leaderboard_dw <- leaderboard_new[,c(2,4:10)]
 leaderboard_dw <- leaderboard_dw[order(-leaderboard_dw$wins,-leaderboard_dw$accuracy),]
+
 write.csv(leaderboard_dw,file="Output/Leaderboard_BeatTheRobot.csv",row.names = FALSE, fileEncoding = "UTF-8")
 
 print(leaderboard_dw)
