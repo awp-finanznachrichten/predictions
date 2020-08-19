@@ -62,6 +62,7 @@ colnames(prediction_next_game) <- c("match","win home team","draw","win away tea
 predictions_next_game <- rbind(predictions_next_game,prediction_next_game)
 
 print(i)
+print(prediction_next_game)
 
 }
 

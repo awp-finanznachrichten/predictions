@@ -196,6 +196,8 @@ for(i in 1:ncol(all_matches)){
 
 upcoming_matches <- all_matches[(nrow(all_matches)-length(new_matches)+1):nrow(all_matches),]
 
+upcoming_matches$points_home <- NA
+upcoming_matches$points_away <- NA
 
 #Add Elo
 upcoming_matches$elo_home <- NA
@@ -247,5 +249,6 @@ print("data for upcoming matches gathered")
 
 View(upcoming_matches)
 
-upcoming_matches <- all_matches[1566:1570,]
+#upcoming_matches <- all_matches[1566:1570,]
+
 
