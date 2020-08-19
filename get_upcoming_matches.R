@@ -54,6 +54,8 @@ for (i in new_matches) {
   
 }
 
+#Write in dataframe
+
 upcoming_matches <- upcoming_matches[-1,]
 upcoming_matches$date <- as.Date(upcoming_matches$date,format="%d.%m.%Y")
 
@@ -199,6 +201,7 @@ upcoming_matches <- all_matches[(nrow(all_matches)-length(new_matches)+1):nrow(a
 upcoming_matches$elo_home <- NA
 upcoming_matches$elo_away <- NA
 
+
 for (y in 1:nrow(upcoming_matches)) {
   
   date <- upcoming_matches$date[y]-1
@@ -215,9 +218,11 @@ for (y in 1:nrow(upcoming_matches)) {
   
 }
 
+
 #Add average market value
 #season
 upcoming_matches$season <- season
+
 
 #Marktwerte laden
 Market_Values <- read_excel("Market_Values.xlsx")
@@ -239,3 +244,8 @@ upcoming_matches$overall_performance_home <- as.numeric(upcoming_matches$overall
 upcoming_matches$overall_performance_away <- as.numeric(upcoming_matches$overall_performance_away)
 
 print("data for upcoming matches gathered")
+
+View(upcoming_matches)
+
+upcoming_matches <- all_matches[1566:1570,]
+

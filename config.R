@@ -23,7 +23,7 @@ dbDisconnectAll <- function(){
 }
 
 #Set working directory
-setwd("C:/Users/simon/OneDrive/Fussballdaten/predictions")
+setwd("C:/Users/sw/OneDrive/Fussballdaten/predictions")
 
 #Funktion Elo-Daten
 source("get_elodata.R")

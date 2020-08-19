@@ -75,6 +75,7 @@ predictions_next_game <- predictions_next_game  %>%
   group_by(match) %>% 
   summarise_each(funs(mean))
 
+
 write.csv(predictions_next_game,file="Output/predictions_upcoming_matches.csv",row.names = FALSE, fileEncoding = "UTF-8")
 
 print(predictions_next_game)

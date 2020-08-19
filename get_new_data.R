@@ -166,7 +166,6 @@ elo_values$Club <- gsub("Xamax","Neuchâtel Xamax FCS",elo_values$Club)
 elo_values$Club <- gsub("Young Boys","BSC Young Boys",elo_values$Club)
 elo_values$Club <- gsub("Zuerich","FC Zürich",elo_values$Club)
 
-
 data_transfermarkt_new$elo_home <- NA
 data_transfermarkt_new$elo_away <- NA
 

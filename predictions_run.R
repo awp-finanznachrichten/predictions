@@ -7,7 +7,7 @@ games <- 3197414:3197418
 new_matches <- 3197414:3197418
 
 #Season and Round
-season <- "19/20"
+season <- "20/21"
 round <- "01"
 
 #Scrape recently played matches
