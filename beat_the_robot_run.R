@@ -72,20 +72,21 @@ print(tips)
 save(tips,file=paste0("BeatTheRobot/tips_",round,".Rda"))
 
 #Create "Hallo of Fame" with all winners
-hall_of_fame <- data.frame(tips[tips$won == 1,4])
-names(hall_of_fame) <- "What is your name?" 
+hall_of_fame <- data.frame(tips[tips$won == 1,c(4,10)])
+colnames(hall_of_fame) <- c("Player","correct guesses")
 
 if (nrow(hall_of_fame) == 0) {
 
-hall_of_fame <- data.frame("Nobody beat SwissFootyBot so far!")
-names(hall_of_fame) <- "What is your name?" 
+hall_of_fame <- data.frame("Nobody beat SwissFootyBot so far!",NA)
+colnames(hall_of_fame) <- c("Player","correct guesses")
 
 }
 
-hall_of_fame <- hall_of_fame[order(hall_of_fame$`What is your name?`),]
+hall_of_fame <- hall_of_fame[order(-hall_of_fame$`correct guesses`,hall_of_fame$Player),]
 
 write.csv(hall_of_fame,file="Output/HallOfFame_BeatTheRobot.csv",row.names = FALSE, fileEncoding = "UTF-8")
-print(paste0("Hall of Fame:\n",hall_of_fame))
+print(paste0("Hall of Fame: ",nrow(hall_of_fame)," players outsmarted SwissFootyBot"))
+print(hall_of_fame)
 
 #Performance of SwissFootyBot
 accuracy_robot <- score_robot/nrow(last_results)

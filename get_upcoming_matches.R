@@ -233,7 +233,7 @@ market_values_home <- market_values
 colnames(market_values_home) <- c("season","team_home","mv_overall_home","mv_average_home","mv_ranking_home")
 upcoming_matches <- merge(upcoming_matches,market_values_home)
 
-market_values_away <- Market_Values
+market_values_away <- market_values
 colnames(market_values_away) <- c("season","team_away","mv_overall_away","mv_average_away","mv_ranking_away")
 upcoming_matches <- merge(upcoming_matches,market_values_away)
 
