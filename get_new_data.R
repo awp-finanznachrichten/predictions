@@ -17,8 +17,8 @@ matches_database[matches_database == 999] <- NA
 ###Scraping Spieldaten
 
 #New data frame
-data_transfermarkt_new <- data.frame("team_home","team_away",0,0,1,"01.01.1900","99:99","result","result_halftime",99999,"Schiedsrichter",1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16)
-colnames(data_transfermarkt_new) <- c("team_home","team_away","team_home_ranking","team_away_ranking",
+data_transfermarkt_new <- data.frame(9999999,"team_home","team_away",0,0,1,"01.01.1900","99:99","result","result_halftime",99999,"Schiedsrichter",1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16)
+colnames(data_transfermarkt_new) <- c("ID","team_home","team_away","team_home_ranking","team_away_ranking",
                                   "round","date","time","result","result_halftime","crowd","referee",
                                   "shots_overall_home","shots_overall_away","shots_target_home","shots_target_away",
                                   "shots_missed_home","shots_missed_away","shots_hold_home","shots_hold_away",
@@ -29,6 +29,8 @@ for (i in games) {
   
   url <- paste0("https://www.transfermarkt.ch/fc-sion_fc-basel-1893/statistik/spielbericht/",i)
   webpage <- read_html(url)
+  
+  ID <- i
   
   team_home <- html_text(html_nodes(webpage,".sb-vereinslink"))[1]
   team_away <- html_text(html_nodes(webpage,".sb-vereinslink"))[3]
@@ -72,14 +74,14 @@ for (i in games) {
   offside_away <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[16])
   
   #Write in dataframe
-  new_data <- data.frame(team_home,team_away,team_home_ranking,team_away_ranking,
+  new_data <- data.frame(ID,team_home,team_away,team_home_ranking,team_away_ranking,
                          spieltag,datum,zeit,result_fulltime,result_halbzeit,zuschauer,schiedsrichter,
                          shots_overall_home,shots_overall_away,shots_target_home,shots_target_away,
                          shots_missed_home,shots_missed_away,shots_hold_home,shots_hold_away,
                          corner_home,corner_away,freekicks_home,freekicks_away,
                          fouls_home,fouls_away,offside_home,offside_away)
   
-  colnames(new_data) <- c("team_home","team_away","team_home_ranking","team_away_ranking",
+  colnames(new_data) <- c("ID","team_home","team_away","team_home_ranking","team_away_ranking",
                           "round","date","time","result","result_halftime","crowd","referee",
                           "shots_overall_home","shots_overall_away","shots_target_home","shots_target_away",
                           "shots_missed_home","shots_missed_away","shots_hold_home","shots_hold_away",
@@ -132,6 +134,9 @@ for (i in 1:nrow(data_transfermarkt_new)) {
 #season
 data_transfermarkt_new$season <- season
 
+#Liga
+data_transfermarkt_new$league <- "Super League"
+
 #Marktwerte laden
 Market_Values <- read_excel("Market_Values.xlsx")
 market_values_home <- Market_Values
@@ -142,11 +147,7 @@ market_values_away <- Market_Values
 colnames(market_values_away) <- c("season","team_away","mv_overall_away","mv_average_away","mv_ranking_away")
 data_transfermarkt_new <- merge(data_transfermarkt_new,market_values_away)
 
-#Liga
-data_transfermarkt_new$league <- "Super League"
 
-#ID
-data_transfermarkt_new$ID <- NA
 
 #ELO-Werte hinzufügen
 elo_values <- get_elodata()
@@ -327,10 +328,6 @@ for (i in (nrow(matches_database)-length(games)):nrow(matches_database)) {
 #Sortieren
 matches_database <- matches_database[order(matches_database$date),]
 
-#ID generieren
-matches_database$ID <- NA
-matches_database <- unique(matches_database)
-matches_database$ID <- seq.int(nrow(matches_database))
 
 #NA in NULL-Werte
 matches_database[is.na(matches_database)] <- "999"
@@ -423,3 +420,5 @@ rs <- dbSendQuery(mydb, sql_qry)
 dbDisconnectAll()
 
 print("New data written in Database")
+
+View(data_transfermarkt_new)
