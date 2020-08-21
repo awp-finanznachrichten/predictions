@@ -227,8 +227,9 @@ upcoming_matches$season <- season
 
 
 #Marktwerte laden
-Market_Values <- read_excel("Market_Values.xlsx")
-market_values_home <- Market_Values
+source("get_market_values.R")
+
+market_values_home <- market_values
 colnames(market_values_home) <- c("season","team_home","mv_overall_home","mv_average_home","mv_ranking_home")
 upcoming_matches <- merge(upcoming_matches,market_values_home)
 

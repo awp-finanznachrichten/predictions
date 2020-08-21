@@ -138,8 +138,9 @@ data_transfermarkt_new$season <- season
 data_transfermarkt_new$league <- "Super League"
 
 #Marktwerte laden
-Market_Values <- read_excel("Market_Values.xlsx")
-market_values_home <- Market_Values
+source("get_market_values.R")
+
+market_values_home <- market_values
 colnames(market_values_home) <- c("season","team_home","mv_overall_home","mv_average_home","mv_ranking_home")
 data_transfermarkt_new <- merge(data_transfermarkt_new,market_values_home)
 
