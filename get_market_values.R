@@ -25,10 +25,14 @@ print(new_data)
 market_values <- market_values[-1,]
 market_values$value <- gsub(",",".",market_values$value)
 market_values$value <- as.numeric(str_extract(market_values$value, "\\d+\\.*\\d*"))
-market_values$players <- as.numeric(market_values$players)
+
+
+market_values$players <- as.numeric(as.character(market_values$players))
 market_values$average <- market_values$value/market_values$players
 
 market_values <- market_values[order(-market_values$value),]
 market_values$ranking <- 1:10
 
 market_values <- market_values[,-4]
+market_values$season <- as.character(market_values$season)
+market_values$club <- as.character(market_values$club)
