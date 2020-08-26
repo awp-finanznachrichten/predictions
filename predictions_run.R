@@ -1,4 +1,9 @@
+#Load library and set wd
 source("config.R")
+
+#Season and Round
+season <- "20/21"
+round <- "01"
 
 #Recently played matches
 games <- 3197414:3197418
@@ -6,9 +11,12 @@ games <- 3197414:3197418
 #Upcoming matches
 new_matches <- 3197414:3197418
 
-#Season and Round
-season <- "20/21"
-round <- "01"
+#Get Elo-Daten
+source("get_elodata.R")
+
+#Marktwerte laden
+source("get_market_values.R")
+
 
 #Scrape recently played matches
 source("get_new_data.R", encoding = "UTF-8")

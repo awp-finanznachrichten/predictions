@@ -20,6 +20,13 @@ upcoming_matches <- data.frame("team_home","team_away",0,0,1,"01.01.1900","99:99
 colnames(upcoming_matches) <- c("team_home","team_away","team_home_ranking","team_away_ranking",
                                 "round","date","time","referee")
 
+new_data <- data.frame("FC Luzern","Servette FC",5,4,
+                       1,"19.09.2020","20:00","Spongebob Schwammkopf")
+colnames(new_data) <- c("team_home","team_away","team_home_ranking","team_away_ranking",
+                        "round","date","time","referee")
+
+upcoming_matches <- rbind(upcoming_matches,new_data)
+
 for (i in new_matches) {
   
   url <- paste0("https://www.transfermarkt.ch/fc-sion_fc-basel-1893/statistik/spielbericht/",i)
@@ -226,9 +233,7 @@ for (y in 1:nrow(upcoming_matches)) {
 upcoming_matches$season <- season
 
 
-#Marktwerte laden
-source("get_market_values.R")
-
+#Marktwerte
 market_values_home <- market_values
 colnames(market_values_home) <- c("season","team_home","mv_overall_home","mv_average_home","mv_ranking_home")
 upcoming_matches <- merge(upcoming_matches,market_values_home)

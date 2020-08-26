@@ -137,9 +137,8 @@ data_transfermarkt_new$season <- season
 #Liga
 data_transfermarkt_new$league <- "Super League"
 
-#Marktwerte laden
-source("get_market_values.R")
 
+#Marktwerte
 market_values_home <- market_values
 colnames(market_values_home) <- c("season","team_home","mv_overall_home","mv_average_home","mv_ranking_home")
 data_transfermarkt_new <- merge(data_transfermarkt_new,market_values_home)
@@ -151,23 +150,6 @@ data_transfermarkt_new <- merge(data_transfermarkt_new,market_values_away)
 
 
 #ELO-Werte hinzufügen
-elo_values <- get_elodata()
-
-elo_values$Club <- gsub("Aarau","FC Aarau",elo_values$Club)
-elo_values$Club <- gsub("Basel","FC Basel 1893",elo_values$Club)
-elo_values$Club <- gsub("Grasshoppers","Grasshopper Club Zürich",elo_values$Club)
-elo_values$Club <- gsub("Lausanne","FC Lausanne-Sport",elo_values$Club)
-elo_values$Club <- gsub("Lugano","FC Lugano",elo_values$Club)
-elo_values$Club <- gsub("Luzern","FC Luzern",elo_values$Club)
-elo_values$Club <- gsub("Servette","Servette FC",elo_values$Club)
-elo_values$Club <- gsub("Sion","FC Sion",elo_values$Club)
-elo_values$Club <- gsub("StGallen","FC St. Gallen 1879",elo_values$Club)
-elo_values$Club <- gsub("Thun","FC Thun",elo_values$Club)
-elo_values$Club <- gsub("Vaduz","FC Vaduz",elo_values$Club)
-elo_values$Club <- gsub("Xamax","Neuchâtel Xamax FCS",elo_values$Club)
-elo_values$Club <- gsub("Young Boys","BSC Young Boys",elo_values$Club)
-elo_values$Club <- gsub("Zuerich","FC Zürich",elo_values$Club)
-
 data_transfermarkt_new$elo_home <- NA
 data_transfermarkt_new$elo_away <- NA
 
