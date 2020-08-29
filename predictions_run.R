@@ -12,10 +12,10 @@ games <- 3197414:3197418
 new_matches <- 3425898
 
 #Get Elo-Daten
-source("get_elodata.R")
+source("get_elodata.R", encoding = "UTF-8")
 
 #Marktwerte laden
-source("get_market_values.R")
+source("get_market_values.R", encoding = "UTF-8")
 
 
 #Scrape recently played matches
