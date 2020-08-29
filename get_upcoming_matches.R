@@ -20,13 +20,6 @@ upcoming_matches <- data.frame("team_home","team_away",0,0,1,"01.01.1900","99:99
 colnames(upcoming_matches) <- c("team_home","team_away","team_home_ranking","team_away_ranking",
                                 "round","date","time","referee")
 
-new_data <- data.frame("FC Luzern","Servette FC",5,4,
-                       1,"19.09.2020","20:00","Spongebob Schwammkopf")
-colnames(new_data) <- c("team_home","team_away","team_home_ranking","team_away_ranking",
-                        "round","date","time","referee")
-
-upcoming_matches <- rbind(upcoming_matches,new_data)
-
 for (i in new_matches) {
   
   url <- paste0("https://www.transfermarkt.ch/fc-sion_fc-basel-1893/statistik/spielbericht/",i)
@@ -60,6 +53,7 @@ for (i in new_matches) {
   print(nrow(upcoming_matches)-1)
   
 }
+
 
 #Write in dataframe
 

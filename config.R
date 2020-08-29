@@ -23,4 +23,4 @@ dbDisconnectAll <- function(){
 }
 
 #Set working directory
-setwd("C:/Users/sw/OneDrive/Fussballdaten/predictions")
+setwd("C:/Users/simon/OneDrive/Fussballdaten/predictions")
