@@ -2,12 +2,14 @@
 season_prognosis <- data.frame(0,0,0,0,0,0,0,0,0,0)
 colnames(season_prognosis) <- c("BSC Young Boys","FC Basel 1893","FC Lausanne-Sport","FC Lugano","FC Luzern","FC Sion","FC St. Gallen 1879","FC Vaduz","FC Zürich","Servette FC")
 
+#Remove rankings
+X <- X[,-c(1:2)]
+
+#Get needed data from upcoming matches
+new_games <- upcoming_matches[,c(2:3,12:21)]
 
 ###Start learning process
 for (a in 1:50) {
-  
-  
-  new_games <- upcoming_matches[,c(2:5,12:21)]
 
 
   # Train the model 
