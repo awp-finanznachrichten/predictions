@@ -75,6 +75,9 @@ for (i in 1:ncol(season_prognosis)) {
 
 table <- table[order(-table$`round(colMeans(season_prognosis))`),]
 
+colnames(table) <- c("Final Score","CI low","CI high")
+
+
 write.csv(table,file="Output/predictions_season.csv",row.names = TRUE, fileEncoding = "UTF-8")
 
 print(table)

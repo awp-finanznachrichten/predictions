@@ -1,4 +1,4 @@
-"","round(colMeans(season_prognosis))","quantile_low","quantile_high"
+"","Final Score","CI low","CI high"
 "BSC Young Boys",82,81,83
 "FC Basel 1893",70,69,71
 "FC St. Gallen 1879",70,69,71
