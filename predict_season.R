@@ -75,7 +75,7 @@ for (i in 1:ncol(season_prognosis)) {
   
 }
 
-table <- table[order(-table$`round(colMeans(season_prognosis))`),]
+table <- table[order(-table$`round(colMeans(season_prognosis))`,-table$quantile_low),]
 
 colnames(table) <- c("Final Score","CI low","CI high")
 
