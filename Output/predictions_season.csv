@@ -1,11 +1,11 @@
 "","round(colMeans(season_prognosis))","quantile_low","quantile_high"
-"BSC Young Boys",NA,NA,NA
-"FC Basel 1893",NA,NA,NA
-"FC Lugano",NA,NA,NA
-"FC Luzern",NA,NA,NA
-"FC Sion",NA,NA,NA
-"FC St. Gallen 1879",NA,NA,NA
-"FC Thun",NA,NA,NA
-"FC Zuerich",NA,NA,NA
-"Neuchatel Xamax FCS",NA,NA,NA
-"Servette FC",NA,NA,NA
+"BSC Young Boys",82,81,83
+"FC Basel 1893",70,69,71
+"FC St. Gallen 1879",70,69,71
+"Servette FC",56,55,56
+"FC Lugano",46,45,47
+"FC Luzern",42,41,43
+"FC Zürich",42,41,43
+"FC Sion",37,36,38
+"FC Lausanne-Sport",34,33,35
+"FC Vaduz",27,26,28

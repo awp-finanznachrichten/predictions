@@ -14,7 +14,6 @@ dbDisconnectAll()
 matches_database$date <- as.Date(matches_database$date)
 matches_database[matches_database == 999] <- NA
 
-
 #New data frame
 upcoming_matches <- data.frame("team_home","team_away",0,0,1,"01.01.1900","99:99","Schiedsrichter")
 colnames(upcoming_matches) <- c("team_home","team_away","team_home_ranking","team_away_ranking",
@@ -127,6 +126,7 @@ old_matches <- matches_database[,c(4:10,14,33:34,45:46,49:52)]
 all_matches <- rbind(old_matches,upcoming_matches)
 
 
+
 for (i in (nrow(all_matches)-length(new_matches)):nrow(all_matches)) {
   
   team <- all_matches$team_home[i]  
@@ -195,6 +195,7 @@ for(i in 1:ncol(all_matches)){
   all_matches[is.na(all_matches[,i]), i] <- mean(all_matches[,i], na.rm = TRUE)
 }
 
+
 upcoming_matches <- all_matches[(nrow(all_matches)-length(new_matches)+1):nrow(all_matches),]
 
 upcoming_matches$points_home <- NA
@@ -248,6 +249,7 @@ upcoming_matches$overall_performance_away <- as.numeric(upcoming_matches$overall
 print("data for upcoming matches gathered")
 
 View(upcoming_matches)
+
 
 #upcoming_matches <- all_matches[1566:1570,]
 
