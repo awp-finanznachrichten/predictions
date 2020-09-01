@@ -5,10 +5,9 @@ tips <- read_csv("BeatTheRobot/Beat the robot - Round 1 (Antworten) - Formularan
 tips <- tips %>%
   distinct(`E-Mail-Adresse`, .keep_all=TRUE)
 
-
 #Evaluate score of the robot
 compare <- merge(last_results,predictions_robot)
-score_robot <- length(intersect(compare$target,compare$Prediction))
+score_robot <- sum(compare$target == compare$Prediction)
 
 #Evaluate scores of the players
 tips$score <- 0
@@ -72,13 +71,13 @@ print(tips)
 save(tips,file=paste0("BeatTheRobot/tips_",round,".Rda"))
 
 #Create "Hallo of Fame" with all winners
-hall_of_fame <- data.frame(tips[tips$won == 1,c(4,10)])
-colnames(hall_of_fame) <- c("Player","correct guesses")
+hall_of_fame <- data.frame(tips[tips$won == 1,c(4,9:10)])
+colnames(hall_of_fame) <- c("Player","Twitter account","correct guesses")
 
 if (nrow(hall_of_fame) == 0) {
 
-hall_of_fame <- data.frame("Nobody beat SwissFootyBot so far!",NA)
-colnames(hall_of_fame) <- c("Player","correct guesses")
+hall_of_fame <- data.frame("Nobody beat SwissFootyBot so far!",NA,NA)
+colnames(hall_of_fame) <- c("Player","Twitter account","correct guesses")
 
 }
 
