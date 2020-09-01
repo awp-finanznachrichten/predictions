@@ -132,8 +132,9 @@ ties_overall <- sum(performance_robot$ties)
 performance_robot <- performance_robot %>%
   add_row(round=round_overall,score=score_overall,accuracy=accuracy_overall,wins=wins_overall,losses=losses_overall,ties=ties_overall,.before=TRUE)
 
+
 write.csv(performance_robot,file="Output/Performance_BeatTheRobot.csv",row.names = FALSE, fileEncoding = "UTF-8")
-print(performance_robot)
+
 
 #Get current Leaderboard
 
@@ -146,8 +147,10 @@ Encoding(leaderboard$email) <- "UTF-8"
 Encoding(leaderboard$name) <- "UTF-8"
 Encoding(leaderboard$twitter) <- "UTF-8"
 
+
 #Save old data (to be sure)
 save(leaderboard,file=paste0("BeatTheRobot/leaderboard_",round,".Rda"))
+
 
 #Merge with new data and adapt
 leaderboard_new <- merge(leaderboard,tips,by.x="email",by.y="E-Mail-Adresse",all=TRUE)
@@ -177,8 +180,8 @@ sql_qry <- "INSERT INTO leaderboard_btr(email,name,twitter,wins,losses,ties,corr
 
 sql_qry <- paste0(sql_qry, paste(sprintf("('%s', '%s', '%s', '%s' , '%s', '%s', '%s', '%s' , '%s', '%s')",
                                          leaderboard_new$email,
-                                         leaderboard_new$`What is your name?`,
-                                         leaderboard_new$`Your Twitter account (voluntary)`,
+                                         leaderboard_new$`Your full name`,
+                                         leaderboard_new$`Your Twitter account (optional)`,
                                          leaderboard_new$wins,
                                          leaderboard_new$losses,
                                          leaderboard_new$ties,
@@ -195,7 +198,7 @@ rs <- dbSendQuery(mydb, sql_qry)
 dbDisconnectAll()
 
 #Save leaderboard as csv for Datawrapper
-leaderboard_dw <- leaderboard_new[,c(2,4:10)]
+leaderboard_dw <- leaderboard_new[,c(2:10)]
 leaderboard_dw <- leaderboard_dw[order(-leaderboard_dw$wins,-leaderboard_dw$accuracy),]
 
 write.csv(leaderboard_dw,file="Output/Leaderboard_BeatTheRobot.csv",row.names = FALSE, fileEncoding = "UTF-8")
