@@ -248,9 +248,4 @@ upcoming_matches$overall_performance_away <- as.numeric(upcoming_matches$overall
 
 print("data for upcoming matches gathered")
 
-View(upcoming_matches)
-
-
-#upcoming_matches <- all_matches[1566:1570,]
-
 

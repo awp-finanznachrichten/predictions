@@ -9,7 +9,7 @@ round <- "01"
 games <- 3197414:3197418
 
 #Upcoming matches
-new_matches <- 3425898
+new_matches <- 3197414:3197418
 
 #Get Elo-Daten
 source("get_elodata.R", encoding = "UTF-8")
