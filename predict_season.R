@@ -8,6 +8,7 @@ X <- X[,-c(1:2)]
 #Get needed data from upcoming matches
 new_games <- upcoming_matches[,c(2:3,12:21)]
 
+
 ###Start learning process
 for (a in 1:50) {
 
@@ -63,21 +64,23 @@ for (a in 1:50) {
 
 season_prognosis <- season_prognosis[-1,]
 
+
 #Create table
-table <- as.data.frame(round(colMeans(season_prognosis)))
+table <- as.data.frame(round(colMeans(season_prognosis)*2))
 table$quantile_low <- 0
 table$quantile_high <- 0
 
 for (i in 1:ncol(season_prognosis)) {
   
-  table$quantile_low[i] <- round(quantile(season_prognosis[,i],0.025))
-  table$quantile_high[i] <- round(quantile(season_prognosis[,i],0.975))
+  table$quantile_low[i] <- round(quantile(season_prognosis[,i],0.025)*2)
+  table$quantile_high[i] <- round(quantile(season_prognosis[,i],0.975)*2)
   
 }
 
-table <- table[order(-table$`round(colMeans(season_prognosis))`,-table$quantile_low),]
-
 colnames(table) <- c("Final Score","CI low","CI high")
+table <- table[order(-table$`Final Score`,-table$`CI low`),]
+View(table)
+
 
 
 write.csv(table,file="Output/predictions_season.csv",row.names = TRUE, fileEncoding = "UTF-8")

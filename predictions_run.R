@@ -5,11 +5,11 @@ source("config.R")
 season <- "20/21"
 round <- "01"
 
-#Recently played matches
-games <- 3197414:3197418
+#Get old predictions of robot
+predictions_robot_old <- read_csv("Output/predictions_SwissFootyBot.csv")
 
-#Upcoming matches
-new_matches <- 3197414:3197418
+#Get Recently played matches and upcoming matches
+source("getting_ids.R", encoding = "UTF-8")
 
 #Get Elo-Daten
 source("get_elodata.R", encoding = "UTF-8")
@@ -24,6 +24,7 @@ source("get_new_data.R", encoding = "UTF-8")
 #Scrape upcoming matches
 source("get_upcoming_matches.R", encoding = "UTF-8")
 
+
 #Predict next round
 source("predict_next_round.R")
 
@@ -32,3 +33,5 @@ source("predict_season.R")
 
 ###Beat the robot
 source("beat_the_robot_run.R")
+
+View(upcoming_matches)

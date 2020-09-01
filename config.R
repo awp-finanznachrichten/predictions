@@ -14,6 +14,7 @@ library(dplyr)
 library(RCurl)
 library(httr)
 library(tibble)
+library(readr)
 
 ###Funktion Datenbankverbindungen schliessen
 dbDisconnectAll <- function(){

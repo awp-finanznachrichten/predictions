@@ -222,7 +222,6 @@ for (y in 1:nrow(upcoming_matches)) {
   
 }
 
-
 #Add average market value
 #season
 upcoming_matches$season <- season
@@ -245,7 +244,6 @@ upcoming_matches$year_performance_home <- as.numeric(upcoming_matches$year_perfo
 upcoming_matches$year_performance_away <- as.numeric(upcoming_matches$year_performance_away)
 upcoming_matches$overall_performance_home <- as.numeric(upcoming_matches$overall_performance_home)
 upcoming_matches$overall_performance_away <- as.numeric(upcoming_matches$overall_performance_away)
+upcoming_matches <- upcoming_matches[order(upcoming_matches$round),]
 
 print("data for upcoming matches gathered")
-
-
