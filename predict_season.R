@@ -79,9 +79,6 @@ for (i in 1:ncol(season_prognosis)) {
 
 colnames(table) <- c("Final Score","CI low","CI high")
 table <- table[order(-table$`Final Score`,-table$`CI low`),]
-View(table)
-
-
 
 write.csv(table,file="Output/predictions_season.csv",row.names = TRUE, fileEncoding = "UTF-8")
 

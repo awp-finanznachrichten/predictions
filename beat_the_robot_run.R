@@ -5,8 +5,9 @@ tips <- read_csv("BeatTheRobot/Beat the robot - Round 1 (Antworten) - Formularan
 tips <- tips %>%
   distinct(`E-Mail-Adresse`, .keep_all=TRUE)
 
+
 #Evaluate score of the robot
-compare <- merge(last_results,predictions_robot)
+compare <- merge(last_results,predictions_robot_old)
 score_robot <- sum(compare$target == compare$Prediction)
 
 #Evaluate scores of the players
