@@ -46,7 +46,6 @@ next_round <- upcoming_matches[1:5,]
 matches <- paste0(next_round$team_home,"-",next_round$team_away)
 new_games <- next_round[,c(4:5,12:21)]
 
-
 for (i in 1:50) {
 
   # Train the model 
@@ -106,4 +105,3 @@ predictions_robot <- predictions_next_game[,c(1,5)]
 print(predictions_robot)
 
 write.csv(predictions_robot,file="Output/predictions_SwissFootyBot.csv",row.names = FALSE, fileEncoding = "UTF-8")
-

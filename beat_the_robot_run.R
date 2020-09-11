@@ -5,7 +5,6 @@ tips <- read_csv("BeatTheRobot/Beat the robot - Round 1 (Antworten) - Formularan
 tips <- tips %>%
   distinct(`E-Mail-Adresse`, .keep_all=TRUE)
 
-
 #Evaluate score of the robot
 compare <- merge(last_results,predictions_robot_old)
 score_robot <- sum(compare$target == compare$Prediction)
@@ -67,6 +66,8 @@ tips$fail <- 5-tips$score
 
 print(paste0(nrow(tips)," tips detected"))
 print(tips)
+
+View(tips)
 
 #Save data of round
 save(tips,file=paste0("BeatTheRobot/tips_",round,".Rda"))
@@ -201,6 +202,7 @@ dbDisconnectAll()
 #Save leaderboard as csv for Datawrapper
 leaderboard_dw <- leaderboard_new[,c(2:10)]
 leaderboard_dw <- leaderboard_dw[order(-leaderboard_dw$wins,-leaderboard_dw$accuracy),]
+leaderboard_dw$`Your Twitter account (optional)`[leaderboard_dw$`Your Twitter account (optional)`== 0] <- NA
 
 write.csv(leaderboard_dw,file="Output/Leaderboard_BeatTheRobot.csv",row.names = FALSE, fileEncoding = "UTF-8")
 

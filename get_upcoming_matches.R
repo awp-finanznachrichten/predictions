@@ -247,3 +247,5 @@ upcoming_matches$overall_performance_away <- as.numeric(upcoming_matches$overall
 upcoming_matches <- upcoming_matches[order(upcoming_matches$round),]
 
 print("data for upcoming matches gathered")
+
+View(upcoming_matches)
