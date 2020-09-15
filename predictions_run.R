@@ -33,5 +33,3 @@ source("predict_season.R")
 
 ###Beat the robot
 source("beat_the_robot_run.R")
-
-View(upcoming_matches)

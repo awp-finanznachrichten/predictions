@@ -40,11 +40,11 @@ y <- data_rf$target
 predictions_next_game <- data.frame("bla",999,999,999)
 colnames(predictions_next_game) <- c("match","win home team","draw","win away team")
 
-
 #New games
 next_round <- upcoming_matches[1:5,]
 matches <- paste0(next_round$team_home,"-",next_round$team_away)
 new_games <- next_round[,c(4:5,12:21)]
+
 
 for (i in 1:50) {
 
