@@ -15,7 +15,7 @@ ids <- na.omit(ids[ids$check == TRUE,])
 
 new_matches <- as.integer(gsub("[^[:digit:].]", "",ids$ids_id))
 
-played_matches <- (as.numeric(round)-1)*5
+played_matches <- (as.numeric(round))*5
 
 games <- new_matches[(played_matches-4):played_matches]
 

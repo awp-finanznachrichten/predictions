@@ -1,5 +1,3 @@
-#Get Tips
-tips <- read_csv("BeatTheRobot/Beat the robot - Round 1 (Antworten) - Formularantworten 1.csv")
 
 #Eliminate double entries
 tips <- tips %>%
@@ -66,8 +64,6 @@ tips$fail <- 5-tips$score
 
 print(paste0(nrow(tips)," tips detected"))
 print(tips)
-
-View(tips)
 
 #Save data of round
 save(tips,file=paste0("BeatTheRobot/tips_",round,".Rda"))

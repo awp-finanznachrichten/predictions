@@ -19,6 +19,7 @@ source("get_elodata.R", encoding = "UTF-8")
 #Marktwerte laden
 source("get_market_values.R", encoding = "UTF-8")
 
+
 #Scrape recently played matches
 source("get_new_data.R", encoding = "UTF-8")
 
