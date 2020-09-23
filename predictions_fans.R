@@ -1,5 +1,5 @@
 #Get Tips
-tips <- read_csv("BeatTheRobot/Beat the robot - Round 1 (Antworten) - Formularantworten 1.csv")
+tips <- read_csv("BeatTheRobot/Beat the robot - Round 2 (Antworten) - Formularantworten 1.csv")
 
 #Eliminate double entries
 tips <- tips %>%
