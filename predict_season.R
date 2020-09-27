@@ -9,7 +9,7 @@ X_season <- X[,-c(1:2)]
 new_games <- upcoming_matches[,c(2:3,12:21)]
 
 ###Start learning process
-for (a in 1:1) {
+for (a in 1:50) {
 
 
   # Train the model 

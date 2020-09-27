@@ -403,5 +403,3 @@ rs <- dbSendQuery(mydb, sql_qry)
 dbDisconnectAll()
 
 print("New data written in Database")
-
-View(data_transfermarkt_new)

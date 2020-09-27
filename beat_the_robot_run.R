@@ -151,7 +151,32 @@ save(leaderboard,file=paste0("BeatTheRobot/leaderboard_",round,".Rda"))
 
 
 #Merge with new data and adapt
+
+tips$round_played <- 1
+tips$`E-Mail-Adresse` <- tolower(tips$`E-Mail-Adresse`)
+leaderboard$email <- tolower(leaderboard$email)
+
 leaderboard_new <- merge(leaderboard,tips,by.x="email",by.y="E-Mail-Adresse",all=TRUE)
+
+
+for (i in 1:nrow(leaderboard_new)) {
+  
+ if (is.na(leaderboard_new$`Your Twitter account (optional)`[i])==TRUE) {
+   
+   
+  leaderboard_new$`Your Twitter account (optional)`[i] <- leaderboard_new$twitter[i]
+ }
+  
+  if (is.na(leaderboard_new$`Your full name`[i])==TRUE) {
+    
+    
+    leaderboard_new$`Your full name`[i] <- leaderboard_new$name[i]
+  }
+  
+  
+  
+}
+
 
 leaderboard_new[is.na(leaderboard_new)] <- 0
 
@@ -161,7 +186,7 @@ leaderboard_new$ties <- leaderboard_new$ties + leaderboard_new$tie
 leaderboard_new$correct_guesses <- leaderboard_new$correct_guesses + leaderboard_new$score
 leaderboard_new$wrong_guesses <- leaderboard_new$wrong_guesses + leaderboard_new$fail
 leaderboard_new$accuracy <- leaderboard_new$correct_guesses/(leaderboard_new$correct_guesses+leaderboard_new$wrong_guesses)
-leaderboard_new$rounds_played <- leaderboard_new$rounds_played + 1
+leaderboard_new$rounds_played <- leaderboard_new$rounds_played + leaderboard_new$round_played
 
 #Select Data
 leaderboard_new <- leaderboard_new[,c(1,14,18,4:10)]
@@ -172,6 +197,8 @@ mydb <- dbConnect(MySQL(), user='Administrator', password='tqYYDcqx43', dbname='
 #Empty current database
 sql_qry <- "TRUNCATE TABLE football_data.leaderboard_btr"
 rs <- dbSendQuery(mydb, sql_qry)
+
+View(leaderboard_new)
 
 #Load new data
 sql_qry <- "INSERT INTO leaderboard_btr(email,name,twitter,wins,losses,ties,correct_guesses,wrong_guesses,accuracy,rounds_played) VALUES"
@@ -198,7 +225,7 @@ dbDisconnectAll()
 #Save leaderboard as csv for Datawrapper
 leaderboard_dw <- leaderboard_new[,c(2:10)]
 leaderboard_dw <- leaderboard_dw[order(-leaderboard_dw$wins,-leaderboard_dw$accuracy),]
-leaderboard_dw$`Your Twitter account (optional)`[leaderboard_dw$`Your Twitter account (optional)`== 0] <- NA
+leaderboard_dw$`Your Twitter account (optional)`[leaderboard_dw$`Your Twitter account (optional)`== 0] <- "No account"
 
 write.csv(leaderboard_dw,file="Output/Leaderboard_BeatTheRobot.csv",row.names = FALSE, fileEncoding = "UTF-8")
 
