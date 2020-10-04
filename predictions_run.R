@@ -3,8 +3,8 @@ source("config.R")
 
 #Season, played Round and tips from players
 season <- "20/21"
-round <- "02"
-tips <- read_csv("BeatTheRobot/Beat the robot - Round 2 (Antworten) - Formularantworten 1.csv")
+round <- "03"
+tips <- read_csv("BeatTheRobot/Beat the robot - Round 3 (Antworten) - Formularantworten 1.csv")
 
 
 #Get old predictions of robot
@@ -28,15 +28,15 @@ source("get_upcoming_matches.R", encoding = "UTF-8")
 
 
 #Predict next round
-source("predict_next_round.R")
+source("predict_next_round.R", encoding= "UTF-8")
 
 #Predict season
-source("predict_season.R")
+source("predict_season.R", encoding= "UTF-8")
 
 ###Beat the robot
 
 #Predictions fans
-source("predictions_fans.R")
+source("predictions_fans.R", encoding = "UTF-8")
 
 #Evaluate current round
-source("beat_the_robot_run.R")
+source("beat_the_robot_run.R", encoding = "UTF-8")

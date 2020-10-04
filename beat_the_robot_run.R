@@ -198,7 +198,6 @@ mydb <- dbConnect(MySQL(), user='Administrator', password='tqYYDcqx43', dbname='
 sql_qry <- "TRUNCATE TABLE football_data.leaderboard_btr"
 rs <- dbSendQuery(mydb, sql_qry)
 
-View(leaderboard_new)
 
 #Load new data
 sql_qry <- "INSERT INTO leaderboard_btr(email,name,twitter,wins,losses,ties,correct_guesses,wrong_guesses,accuracy,rounds_played) VALUES"
