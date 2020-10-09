@@ -4,7 +4,7 @@ source("config.R")
 #Season, played Round and tips from players
 season <- "20/21"
 round <- "03"
-tips <- read_csv("BeatTheRobot/Beat the robot - Round 3 (Antworten) - Formularantworten 1.csv")
+tips <- read_csv("BeatTheRobot/Beat the robot - Round 4 (Antworten) - Formularantworten 1.csv")
 
 
 #Get old predictions of robot

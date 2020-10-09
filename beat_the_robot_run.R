@@ -74,7 +74,7 @@ colnames(hall_of_fame) <- c("Player","Twitter account","correct guesses")
 
 if (nrow(hall_of_fame) == 0) {
 
-hall_of_fame <- data.frame("Nobody beat SwissFootyBot so far!",NA,NA)
+hall_of_fame <- data.frame("Nobody beat SwissFootyBot!",NA,NA)
 colnames(hall_of_fame) <- c("Player","Twitter account","correct guesses")
 
 }
