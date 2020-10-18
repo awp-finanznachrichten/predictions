@@ -1,76 +1,82 @@
 "Your full name","Your Twitter account (optional)","wins","losses","ties","correct_guesses","wrong_guesses","accuracy","rounds_played"
 "Nathalie","@PazzaNathy3",2,0,1,13,2,0.866666666666667,3
-"Ivo Giger","@azothx",2,0,1,11,4,0.733333333333333,3
-"Ruben Schönenberger","rubensch",2,1,0,9,6,0.6,3
-"TR","@totalmannen",2,1,0,8,7,0.533333333333333,3
-"Ivan Zamorano","No account",1,0,0,4,1,0.8,1
-"Tiago Teixeira","@ti4goteixeira",1,0,2,11,4,0.733333333333333,3
-"Alexander Lüthi","@ alexluethi99",1,0,2,10,5,0.666666666666667,3
-"Marion","MaryTheOne",1,1,1,10,5,0.666666666666667,3
-"Pascal Moghe","@bullbear83",1,0,2,10,5,0.666666666666667,3
-"Ross Cummings","@TheSwissBankie",1,0,2,10,5,0.666666666666667,3
-"Matthias Schmid","@MaSygm",1,1,1,9,6,0.6,3
-"Miguel Pereiro","@miguelpereiroca",1,1,1,9,6,0.6,3
-"Santino Senn","SwissAkuyakuLP",1,1,1,9,6,0.6,3
+"Tiago Teixeira","@ti4goteixeira",2,0,2,14,5,0.736842105263158,4
+"Pascal Moghe","@bullbear83",2,0,2,13,6,0.684210526315789,4
+"Alexander Lüthi","@ alexluethi99",2,0,2,12,7,0.631578947368421,4
+"Ivo Giger","@azothx",2,0,2,12,7,0.631578947368421,4
+"Marion","@MaryTheOne",2,1,1,12,7,0.631578947368421,4
+"Santino Senn","SwissAkuyakuLP",2,1,1,12,7,0.631578947368421,4
+"Matthias Schmid","@MaSygm",2,1,1,11,8,0.578947368421053,4
+"Thomas Wilford","@wilftex",2,1,1,11,8,0.578947368421053,4
+"Kryspin Sankowski","Adsun22",2,2,0,10,9,0.526315789473684,4
+"Florian Raz","@razinger",2,1,1,10,9,0.526315789473684,4
+"Berat&Bulat","berat.bulat.podcast",2,2,0,9,10,0.473684210526316,4
+"JB Fasel","No account",2,2,0,9,10,0.473684210526316,4
+"Ruben Schönenberger","rubensch",2,2,0,9,10,0.473684210526316,4
+"Moeff","No account",2,1,1,9,10,0.473684210526316,4
+"TR","@totalmannen",2,1,1,9,10,0.473684210526316,4
+"Martin Catillaz","No account",2,2,0,8,11,0.421052631578947,4
+"Elias Luther","No account",2,2,0,8,11,0.421052631578947,4
+"Daniel","@eglifish",1,0,0,3,1,0.75,1
+"Geoikym","Sfc1205",1,0,0,3,1,0.75,1
 "Maxi Wagner","ProBasel1893",1,1,0,6,4,0.6,2
-"Maria Z","bestie_mensch",1,1,1,8,7,0.533333333333333,3
-"wenx","@wenxTweet",1,2,0,8,7,0.533333333333333,3
-"Florian Raz","@razinger",1,1,1,8,7,0.533333333333333,3
-"Herr Maldini","No account",1,1,1,8,7,0.533333333333333,3
-"Joël Müller","@Leosch_97",1,1,1,8,7,0.533333333333333,3
-"Michel S.","@miste42",1,2,0,8,7,0.533333333333333,3
+"Joel Blanc","@Rasta_Jol",1,0,3,11,8,0.578947368421053,4
+"Ross Cummings","@TheSwissBankie",1,0,3,11,8,0.578947368421053,4
 "Marc Rinderknecht","@kobebeef_ch",1,2,0,8,7,0.533333333333333,3
 "Sébastien de Morsier","No account",1,1,1,8,7,0.533333333333333,3
-"Thomas Wilford","@wilftex",1,1,1,8,7,0.533333333333333,3
+"Miguel Pereiro","@miguelpereiroca",1,1,2,10,9,0.526315789473684,4
+"Christian Suter","No account",1,0,0,2,2,0.5,1
+"Gabriel Catillo","No account",1,0,0,2,2,0.5,1
 "Jebb Lehman","@jebblehman",1,1,0,5,5,0.5,2
-"Kryspin Sankowski","Adsun22",1,2,0,7,8,0.466666666666667,3
-"Berat&Bulat","@berat.bulat.podcast",1,2,0,7,8,0.466666666666667,3
+"Maximilian Meyer","@meyermaximilian",1,0,0,2,2,0.5,1
+"Maria Z","bestie_mensch",1,1,2,9,10,0.473684210526316,4
+"wenx","@wenxTweet",1,2,1,9,10,0.473684210526316,4
+"Hans Rothlisberger","No account",1,2,1,9,10,0.473684210526316,4
+"Joël Müller","@Leosch_97",1,1,2,9,10,0.473684210526316,4
+"Mathieu","No account",1,1,2,9,10,0.473684210526316,4
+"Michel S.","@miste42",1,2,1,9,10,0.473684210526316,4
 "Gabriel Catillo","No account",1,2,0,7,8,0.466666666666667,3
-"JH","No account",1,2,0,7,8,0.466666666666667,3
 "Luca Solai","luca_solai",1,1,1,7,8,0.466666666666667,3
-"Nischal Schwager-Patel","@Nischal_SP",1,1,1,7,8,0.466666666666667,3
-"Simon Lussy","No account",1,2,0,7,8,0.466666666666667,3
-"Moeff","No account",1,1,1,7,8,0.466666666666667,3
-"Simon Siegmund","@saltcreek_",1,2,0,7,8,0.466666666666667,3
 "Tobias Schneider","@toobie",1,2,0,7,8,0.466666666666667,3
+"Christian","No account",1,1,0,4,5,0.444444444444444,2
+"Jeremy Muller","Jrm1_87",1,1,0,4,5,0.444444444444444,2
+"Zamorano","No account",1,1,0,4,5,0.444444444444444,2
+"Ralph Diemer","@r_die_",1,2,0,6,8,0.428571428571429,3
+"Herr Maldini","No account",1,2,1,8,11,0.421052631578947,4
+"JH","No account",1,2,1,8,11,0.421052631578947,4
+"Nischal Schwager-Patel","@Nischal_SP",1,1,2,8,11,0.421052631578947,4
 "Chris Bernhard","No account",1,0,0,2,3,0.4,1
-"Martin Catillaz","No account",1,2,0,6,9,0.4,3
-"Elias","No account",1,2,0,6,9,0.4,3
-"JB Fasel","No account",1,2,0,6,9,0.4,3
-"Jonathan Tunik","JonathanTunik",1,1,1,6,9,0.4,3
 "grrrrr","@grrrrr_____",1,0,0,2,3,0.4,1
 "Raphael Rehmann","No account",1,0,0,2,3,0.4,1
 "Sucic","No account",1,0,0,2,3,0.4,1
-"Tiago","@NomlTigi",1,1,0,4,6,0.4,2
+"Louis","No account",1,2,1,7,12,0.368421052631579,4
+"Simon Lussy","No account",1,3,0,7,12,0.368421052631579,4
+"Simon Siegmund","@saltcreek_",1,3,0,7,12,0.368421052631579,4
+"Aleksandar Stevanovic","No account",1,1,1,5,9,0.357142857142857,3
+"Tiago","@NomlTigi",1,1,1,5,9,0.357142857142857,3
+"Jonathan Tunik","Jonathantunik",1,2,1,6,13,0.315789473684211,4
+"Chris Wachtler","@chris_wachtler",1,2,1,6,13,0.315789473684211,4
 "Laurenz Willener","No account",1,1,0,3,7,0.3,2
-"Craig King","FootballSwissEN",0,0,2,7,3,0.7,2
 "George Dunn","No account",0,0,1,3,2,0.6,1
 "Bence Horvath","@meccsparadeHUN",0,0,1,3,2,0.6,1
 "Laurent Buttet","No account",0,0,1,3,2,0.6,1
 "Loris Jeitziner","jeitzi93",0,0,1,3,2,0.6,1
 "Loris Pagani","No account",0,0,1,3,2,0.6,1
 "Lucas Rossier","No account",0,0,1,3,2,0.6,1
-"Michael Stotzer","messanger",0,1,0,3,2,0.6,1
 "Roman Bernhard","@mingg_ch",0,0,1,3,2,0.6,1
 "Meitschi vom Breitsch","kiwistärn",0,1,0,3,2,0.6,1
 "Stefan Vetsch","No account",0,0,1,3,2,0.6,1
 "William Cheyne","@dequesnai",0,0,1,3,2,0.6,1
-"Natalia S.","@furicura",0,0,3,8,7,0.533333333333333,3
-"Joel Blanc","@Rasta_Jol",0,0,3,8,7,0.533333333333333,3
+"Craig King","FootballSwissEN",0,0,3,8,6,0.571428571428571,3
 "Andy","No account",0,2,0,5,5,0.5,2
 "Mathias Kainz","@MathiasKainz",0,2,0,5,5,0.5,2
-"Christian","No account",0,1,0,2,3,0.4,1
+"Natalia S.","@furicura",0,0,4,9,10,0.473684210526316,4
 "Claudio Alberti","No account",0,1,0,2,3,0.4,1
-"Daniel Meyer","@danimey_Lu",0,2,0,4,6,0.4,2
 "David Brunner","No account",0,1,0,2,3,0.4,1
 "Joachim","Sfc1205",0,1,0,2,3,0.4,1
 "Burim Kukeli","No account",0,1,0,2,3,0.4,1
 "NV","No account",0,1,0,2,3,0.4,1
 "Grischoun","No account",0,1,0,2,3,0.4,1
-"Hans Rothlisberger","No account",0,2,1,6,9,0.4,3
-"haus","No account",0,1,2,6,9,0.4,3
-"Igor","@FortunateTasar",0,2,1,6,9,0.4,3
-"Jeremy Muller","Jrm1_87",0,1,0,2,3,0.4,1
 "Loïc Schwab","No account",0,1,0,2,3,0.4,1
 "Loic","No account",0,1,0,2,3,0.4,1
 "Max Schmid","No account",0,1,0,2,3,0.4,1
@@ -78,34 +84,36 @@
 "Michael Christen","No account",0,1,0,2,3,0.4,1
 "Mikael Merluzzo","@MerluzzoMikael",0,1,0,2,3,0.4,1
 "Moritz","No account",0,1,0,2,3,0.4,1
-"Nick Conway","No account",0,1,2,6,9,0.4,3
 "Nassim","@Nasyoub",0,1,0,2,3,0.4,1
 "Nick Beyeler","No account",0,1,0,2,3,0.4,1
 "Joshua Guelmino","No account",0,1,0,2,3,0.4,1
 "Sir Philly","No account",0,1,0,2,3,0.4,1
-"Ralph Diemer","@r_die_",0,2,0,4,6,0.4,2
 "Rolf Kummer","No account",0,1,0,2,3,0.4,1
 "Roman Peter","No account",0,1,0,2,3,0.4,1
 "Hugo Filipe Goncalves Teixeira","No account",0,1,0,2,3,0.4,1
-"fluegu","fluegu_",0,2,1,5,10,0.333333333333333,3
+"haus","No account",0,1,3,7,12,0.368421052631579,4
 "Fabian Grüniger","ybfaebe1999",0,2,1,5,10,0.333333333333333,3
-"Gavin Leagas","No account",0,2,1,5,10,0.333333333333333,3
 "Leo Chiofalo","No account",0,3,0,5,10,0.333333333333333,3
 "Mads Birkeland","Mabirk1",0,3,0,5,10,0.333333333333333,3
-"Mathieu","No account",0,1,2,5,10,0.333333333333333,3
+"Michael Stotzer","messanger",0,2,1,5,10,0.333333333333333,2
+"Igor","@FortunateTasar",0,3,1,6,13,0.315789473684211,4
+"Nick Conway","No account",0,2,2,6,13,0.315789473684211,4
 "Patrick Mayr","@PatrickMayr8",0,1,1,3,7,0.3,2
 "Raffi Räber","No account",0,1,1,3,7,0.3,2
-"Aleksandar Stevanovic","No account",0,1,1,3,7,0.3,2
-"Louis","No account",0,2,1,4,11,0.266666666666667,3
-"Chris Wachtler","chris_wachtler",0,2,1,4,11,0.266666666666667,3
+"Daniel Meyer","@danimey_Lu",0,3,0,4,10,0.285714285714286,3
+"fluegu","fluegu_",0,3,1,5,14,0.263157894736842,4
+"Gavin Leagas","No account",0,3,1,5,14,0.263157894736842,4
+"Loris Pagani","@lowtich",0,0,1,1,3,0.25,1
+"Michael Stotzer","messanger",0,0,1,1,3,0.25,1
 "M.C.WAGNER","PBasel1893",0,1,0,1,4,0.2,1
 "Jebb Lehman","@jebblehman",0,1,0,1,4,0.2,1
 "Frédéric Guisolan","No account",0,1,0,1,4,0.2,1
-"Gabriel Catillo","No account",0,1,0,1,4,0.2,1
 "Julien Mallet","@j2rm",0,1,0,1,4,0.2,1
 "Lukas","@lukasninck",0,2,0,2,8,0.2,2
-"Michael Stotzer","messanger",0,1,1,2,8,0.2,2
 "Paolo Laurenti","pao_laurenti",0,1,0,1,4,0.2,1
 "Printhan Sinnakutty","@printhan_5",0,1,1,2,8,0.2,2
 "Tom v","No account",0,1,0,1,4,0.2,1
+"Janic Ryser","DevRyserJanic",0,1,0,0,4,0,1
+"Jez S","@jezs",0,1,0,0,4,0,1
 "Alessandro Della Santa","No account",0,1,0,0,5,0,1
+"Andy","No account",0,1,0,0,4,0,1

@@ -3,7 +3,7 @@ source("config.R")
 
 #Season, played Round and tips from players
 season <- "20/21"
-round <- "03"
+round <- "04"
 tips <- read_csv("BeatTheRobot/Beat the robot - Round 4 (Antworten) - Formularantworten 1.csv")
 
 

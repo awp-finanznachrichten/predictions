@@ -3,6 +3,7 @@
 tips <- tips %>%
   distinct(`E-Mail-Adresse`, .keep_all=TRUE)
 
+
 #Evaluate score of the robot
 compare <- merge(last_results,predictions_robot_old)
 score_robot <- sum(compare$target == compare$Prediction)
@@ -67,6 +68,7 @@ print(tips)
 
 #Save data of round
 save(tips,file=paste0("BeatTheRobot/tips_",round,".Rda"))
+
 
 #Create "Hallo of Fame" with all winners
 hall_of_fame <- data.frame(tips[tips$won == 1,c(4,9:10)])
