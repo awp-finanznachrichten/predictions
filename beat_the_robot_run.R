@@ -1,8 +1,9 @@
+#Get Tips
+tips <- read_csv("BeatTheRobot/Beat the robot - Round 5 (Antworten) - Formularantworten 1.csv")
 
 #Eliminate double entries
 tips <- tips %>%
   distinct(`E-Mail-Adresse`, .keep_all=TRUE)
-
 
 #Evaluate score of the robot
 compare <- merge(last_results,predictions_robot_old)
@@ -34,7 +35,7 @@ for (i in 1:nrow(tips)) {
   
   if (as.character(tips[i,7]) == as.character(last_results[4,2])) {
     
-    tips$score[i] <- tips$score[i] + 1 
+   tips$score[i] <- tips$score[i] + 1 
   }
   
   if (as.character(tips[i,8]) == as.character(last_results[5,2])) {
@@ -61,7 +62,7 @@ for (i in 1:nrow(tips)) {
     
 }  
 
-tips$fail <- 5-tips$score
+tips$fail <- nrow(last_results)-tips$score
 
 print(paste0(nrow(tips)," tips detected"))
 print(tips)

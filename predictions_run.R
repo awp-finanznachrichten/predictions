@@ -3,15 +3,18 @@ source("config.R")
 
 #Season, played Round and tips from players
 season <- "20/21"
-round <- "04"
-tips <- read_csv("BeatTheRobot/Beat the robot - Round 4 (Antworten) - Formularantworten 1.csv")
-
+round <- "05"
+tips <- read_csv("BeatTheRobot/Beat the robot - Round 5 (Antworten) - Formularantworten 1.csv")
 
 #Get old predictions of robot
 predictions_robot_old <- read_csv("Output/predictions_SwissFootyBot.csv")
 
 #Get Recently played matches and upcoming matches
 source("getting_ids.R", encoding = "UTF-8")
+
+#Adaptions
+games <- games[1:3]
+new_matches[66:68] <- c(3432754,3432759,3432757) 
 
 #Get Elo-Daten
 source("get_elodata.R", encoding = "UTF-8")

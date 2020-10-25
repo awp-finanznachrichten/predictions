@@ -24,7 +24,7 @@ data_transfermarkt$target <- gsub(0,"win away",data_transfermarkt$target)
 data_transfermarkt$target <- as.factor(data_transfermarkt$target)
 
 #Last results
-last_results <- data_transfermarkt[(nrow(data_transfermarkt)-3):nrow(data_transfermarkt),c(4:5,55)]
+last_results <- data_transfermarkt[data_transfermarkt$season == season & data_transfermarkt$round == as.numeric(round),c(4:5,55)]
 last_results$match <- paste0(last_results$team_home,"-",last_results$team_away)
 last_results <- last_results[,c(4,3)]
 last_results <- last_results[order(last_results$match),]
@@ -41,7 +41,7 @@ predictions_next_game <- data.frame("bla",999,999,999)
 colnames(predictions_next_game) <- c("match","win home team","draw","win away team")
 
 #New games
-next_round <- upcoming_matches[1:5,]
+next_round <- upcoming_matches[upcoming_matches$round == as.numeric(round)+1,]
 matches <- paste0(next_round$team_home,"-",next_round$team_away)
 new_games <- next_round[,c(4:5,12:21)]
 
