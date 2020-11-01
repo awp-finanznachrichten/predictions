@@ -25,16 +25,16 @@ for (i in new_matches) {
   webpage <- read_html(url)
   
   team_home <- html_text(html_nodes(webpage,".sb-vereinslink"))[1]
-  team_away <- html_text(html_nodes(webpage,".sb-vereinslink"))[3]
+  team_away <- html_text(html_nodes(webpage,".sb-vereinslink"))[2]
   team_home_ranking <- parse_number(html_text(html_nodes(webpage,"p"))[1])
-  team_away_ranking <- parse_number(html_text(html_nodes(webpage,"p"))[5]) #Change to 5 again!!!
+  team_away_ranking <- parse_number(html_text(html_nodes(webpage,"p"))[4]) #Change to 5 again!!!
   
-  spieltag <- parse_number(html_text(html_nodes(webpage,".sb-datum"))[2])
-  datum <- gsub( ".*(\\d{2}.\\d{2}.\\d{2}).*", "\\1", html_text(html_nodes(webpage,".sb-datum"))[2])
+  spieltag <- parse_number(html_text(html_nodes(webpage,".sb-datum"))[1])
+  datum <- gsub( ".*(\\d{2}.\\d{2}.\\d{2}).*", "\\1", html_text(html_nodes(webpage,".sb-datum"))[1])
   datum <- gsub("[.]20",".2020",datum)
   datum <- gsub("[.]21",".2021",datum)
   datum <- gsub("[.]21",".2022",datum)
-  zeit <- gsub( ".*(\\d{2}:\\d{2}).*", "\\1", html_text(html_nodes(webpage,".sb-datum"))[2])
+  zeit <- gsub( ".*(\\d{2}:\\d{2}).*", "\\1", html_text(html_nodes(webpage,".sb-datum"))[1])
   
   schiedsrichter <- str_split(html_text(html_nodes(webpage,".sb-zusatzinfos")),"Schiedsrichter:")[[1]][2]
   schiedsrichter <- trimws(gsub("\t","",schiedsrichter))

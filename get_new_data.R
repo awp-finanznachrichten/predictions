@@ -31,18 +31,19 @@ for (i in games) {
   webpage <- read_html(url)
   
   ID <- i
+  html_text(html_nodes(webpage,".sb-vereinslink"))
   
   team_home <- html_text(html_nodes(webpage,".sb-vereinslink"))[1]
-  team_away <- html_text(html_nodes(webpage,".sb-vereinslink"))[3]
+  team_away <- html_text(html_nodes(webpage,".sb-vereinslink"))[2] #3
   team_home_ranking <- parse_number(html_text(html_nodes(webpage,"p"))[1])
-  team_away_ranking <- parse_number(html_text(html_nodes(webpage,"p"))[6])
-  
-  spieltag <- parse_number(html_text(html_nodes(webpage,".sb-datum"))[2])
-  datum <- gsub( ".*(\\d{2}.\\d{2}.\\d{2}).*", "\\1", html_text(html_nodes(webpage,".sb-datum"))[2])
+  team_away_ranking <- parse_number(html_text(html_nodes(webpage,"p"))[4]) #6
+ 
+  spieltag <- parse_number(html_text(html_nodes(webpage,".sb-datum"))[1]) #2
+  datum <- gsub( ".*(\\d{2}.\\d{2}.\\d{2}).*", "\\1", html_text(html_nodes(webpage,".sb-datum"))[1]) #2
   datum <- gsub("[.]20",".2020",datum)
   datum <- gsub("[.]21",".2021",datum)
   datum <- gsub("[.]21",".2022",datum)
-  zeit <- gsub( ".*(\\d{2}:\\d{2}).*", "\\1", html_text(html_nodes(webpage,".sb-datum"))[2])
+  zeit <- gsub( ".*(\\d{2}:\\d{2}).*", "\\1", html_text(html_nodes(webpage,".sb-datum"))[1]) #2
   
   
   result_fulltime <- gsub("[(].*","",html_text(html_nodes(webpage,".sb-endstand")))[1]
@@ -137,7 +138,6 @@ data_transfermarkt_new$season <- season
 #Liga
 data_transfermarkt_new$league <- "Super League"
 
-
 #Marktwerte
 market_values_home <- market_values
 colnames(market_values_home) <- c("season","team_home","mv_overall_home","mv_average_home","mv_ranking_home")
@@ -146,6 +146,7 @@ data_transfermarkt_new <- merge(data_transfermarkt_new,market_values_home)
 market_values_away <- market_values
 colnames(market_values_away) <- c("season","team_away","mv_overall_away","mv_average_away","mv_ranking_away")
 data_transfermarkt_new <- merge(data_transfermarkt_new,market_values_away)
+
 
 
 
