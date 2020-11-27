@@ -3,8 +3,9 @@ source("config.R")
 
 #Season, played Round and tips from players
 season <- "20/21"
-round <- "08"
-tips <- read_csv("BeatTheRobot/Beat the robot - Round 8 (Antworten) - Formularantworten 1.csv")
+round <- "09"
+tips_path <- "BeatTheRobot/Beat the robot - Round 9 (Antworten) - Formularantworten 1.csv"
+tips <- read_csv(tips_path)
 
 #Get old predictions of robot
 predictions_robot_old <- read_csv("Output/predictions_SwissFootyBot.csv")
@@ -13,8 +14,8 @@ predictions_robot_old <- read_csv("Output/predictions_SwissFootyBot.csv")
 source("getting_ids.R", encoding = "UTF-8")
 
 #Adaptions
-#games <- games[c(1:2,5)]
-missing_matches <- c(3432759,3432757,3432760,3432761,3432763,3481295,3432767,3432768)
+#games <- c(3432757,3432759)
+missing_matches <- c(3432760,3432761,3432763,3481295,3432767,3432768)
 new_matches[(length(new_matches)+1):(length(new_matches)+length(missing_matches))] <- missing_matches
 
 #Get Elo-Daten
