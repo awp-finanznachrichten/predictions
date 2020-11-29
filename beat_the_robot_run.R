@@ -33,17 +33,17 @@ for (i in 1:nrow(tips)) {
     tips$score[i] <- tips$score[i] + 1 
   }
   
-  if (as.character(tips[i,7]) == as.character(last_results[4,2])) {
+  if (as.character(tips[i,8]) == as.character(last_results[4,2])) {
     
    tips$score[i] <- tips$score[i] + 1 
   }
-  
-  if (as.character(tips[i,8]) == as.character(last_results[5,2])) {
-    
-    tips$score[i] <- tips$score[i] + 1 
-  }
 
-  
+  #if (as.character(tips[i,8]) == as.character(last_results[5,2])) {
+    
+  #  tips$score[i] <- tips$score[i] + 1 
+  #}
+
+
   if (tips$score[i] > score_robot) {
     
     
@@ -133,10 +133,9 @@ ties_overall <- sum(performance_robot$ties)
 performance_robot <- performance_robot %>%
   add_row(round=round_overall,score=score_overall,accuracy=accuracy_overall,wins=wins_overall,losses=losses_overall,ties=ties_overall,.before=TRUE)
 
-
 write.csv(performance_robot,file="Output/Performance_BeatTheRobot.csv",row.names = FALSE, fileEncoding = "UTF-8")
 
-
+View(tips)
 #Get current Leaderboard
 
 mydb <- dbConnect(MySQL(), user='Administrator', password='tqYYDcqx43', dbname='football_data', host='33796.hostserv.eu', encoding="utf8")
