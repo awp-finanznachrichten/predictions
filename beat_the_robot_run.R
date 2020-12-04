@@ -135,7 +135,6 @@ performance_robot <- performance_robot %>%
 
 write.csv(performance_robot,file="Output/Performance_BeatTheRobot.csv",row.names = FALSE, fileEncoding = "UTF-8")
 
-View(tips)
 #Get current Leaderboard
 
 mydb <- dbConnect(MySQL(), user='Administrator', password='tqYYDcqx43', dbname='football_data', host='33796.hostserv.eu', encoding="utf8")
