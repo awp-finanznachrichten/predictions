@@ -7,7 +7,8 @@ data_transfermarkt <- fetch(rs,n=-1, encoding="utf8")
 Encoding(data_transfermarkt$team_home) <- "UTF-8"
 Encoding(data_transfermarkt$team_away) <- "UTF-8"
 Encoding(data_transfermarkt$referee) <- "UTF-8"
-
+Encoding(data_transfermarkt$coach_home) <- "UTF-8"
+Encoding(data_transfermarkt$coach_away) <- "UTF-8"
 
 dbDisconnectAll()
 
@@ -29,8 +30,9 @@ last_results$match <- paste0(last_results$team_home,"-",last_results$team_away)
 last_results <- last_results[,c(4,3)]
 last_results <- last_results[order(last_results$match),]
 
+
 #Select data
-data_rf <- data_transfermarkt[,c(6:7,37:38,41:42,45:46,49:52,55)]
+data_rf <- data_transfermarkt[,c(6:7,37:38,41:42,45:46,49:52,ncol(data_transfermarkt))]
 
 data_rf <- na.omit(data_rf)
 

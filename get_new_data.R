@@ -17,13 +17,13 @@ matches_database[matches_database == 999] <- NA
 ###Scraping Spieldaten
 
 #New data frame
-data_transfermarkt_new <- data.frame(9999999,"team_home","team_away",0,0,1,"01.01.1900","99:99","result","result_halftime",99999,"Schiedsrichter",1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16)
+data_transfermarkt_new <- data.frame(9999999,"team_home","team_away",0,0,1,"01.01.1900","99:99","result","result_halftime",99999,"Schiedsrichter",1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,"coach_home","coach_away")
 colnames(data_transfermarkt_new) <- c("ID","team_home","team_away","team_home_ranking","team_away_ranking",
                                   "round","date","time","result","result_halftime","crowd","referee",
                                   "shots_overall_home","shots_overall_away","shots_target_home","shots_target_away",
                                   "shots_missed_home","shots_missed_away","shots_hold_home","shots_hold_away",
                                   "corner_home","corner_away","freekicks_home","freekicks_away",
-                                  "fouls_home","fouls_away","offside_home","offside_away")
+                                  "fouls_home","fouls_away","offside_home","offside_away","coach_home","coach_away")
 
 for (i in games) {
   
@@ -74,20 +74,24 @@ for (i in games) {
   offside_home <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[15])
   offside_away <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[16])
   
+  #Coaches
+  coach_home <- coaches[coaches$coaches_teams == team_home,1]
+  coach_away <- coaches[coaches$coaches_teams == team_away,1]
+  
   #Write in dataframe
   new_data <- data.frame(ID,team_home,team_away,team_home_ranking,team_away_ranking,
                          spieltag,datum,zeit,result_fulltime,result_halbzeit,zuschauer,schiedsrichter,
                          shots_overall_home,shots_overall_away,shots_target_home,shots_target_away,
                          shots_missed_home,shots_missed_away,shots_hold_home,shots_hold_away,
                          corner_home,corner_away,freekicks_home,freekicks_away,
-                         fouls_home,fouls_away,offside_home,offside_away)
+                         fouls_home,fouls_away,offside_home,offside_away,coach_home,coach_away)
   
   colnames(new_data) <- c("ID","team_home","team_away","team_home_ranking","team_away_ranking",
                           "round","date","time","result","result_halftime","crowd","referee",
                           "shots_overall_home","shots_overall_away","shots_target_home","shots_target_away",
                           "shots_missed_home","shots_missed_away","shots_hold_home","shots_hold_away",
                           "corner_home","corner_away","freekicks_home","freekicks_away",
-                          "fouls_home","fouls_away","offside_home","offside_away")
+                          "fouls_home","fouls_away","offside_home","offside_away","coach_home","coach_away")
   
   data_transfermarkt_new <- rbind(data_transfermarkt_new,new_data)
   
@@ -333,7 +337,8 @@ threemonths_performance_home,threemonths_performance_away,
 sixmonths_performance_home,sixmonths_performance_away,
 year_performance_home,year_performance_away,
 overall_performance_home,overall_performance_away,
-same_opponent_home,same_opponent_away
+same_opponent_home,same_opponent_away,
+coach_home,coach_away
 ) VALUES"
 
 sql_qry <- paste0(sql_qry, paste(sprintf("('%s', '%s', '%s', '%s' , '%s', '%s', '%s', '%s' , '%s', '%s',
@@ -341,7 +346,7 @@ sql_qry <- paste0(sql_qry, paste(sprintf("('%s', '%s', '%s', '%s' , '%s', '%s', 
                                          '%s', '%s', '%s', '%s' , '%s', '%s', '%s', '%s' , '%s', '%s',
                                          '%s', '%s', '%s', '%s' , '%s', '%s', '%s', '%s', '%s', '%s',
                                          '%s', '%s', '%s', '%s' , '%s', '%s', '%s', '%s', '%s', '%s',
-                                         '%s', '%s','%s', '%s')",
+                                         '%s', '%s','%s', '%s','%s','%s')",
                                          matches_database$ID,
                                          matches_database$season,
                                          matches_database$league,
@@ -395,7 +400,9 @@ sql_qry <- paste0(sql_qry, paste(sprintf("('%s', '%s', '%s', '%s' , '%s', '%s', 
                                          matches_database$overall_performance_home,
                                          matches_database$overall_performance_away,
                                          matches_database$same_opponent_home,
-                                         matches_database$same_opponent_away
+                                         matches_database$same_opponent_away,
+                                         matches_database$coach_home,
+                                         matches_database$coach_away
 ), collapse = ","))
 dbGetQuery(mydb, "SET NAMES 'utf8'")
 rs <- dbSendQuery(mydb, sql_qry)
