@@ -136,7 +136,7 @@ if (coaches$`Games left`[i] > 70) {
 
 
 #Adaptations
-coaches <- coaches[order(-coaches$alert_level),]
+coaches <- coaches[order(-coaches$alert_level,coaches$`Games left`),]
 coaches$coaches_names <- paste0(coaches$coaches_names," (",coaches$coaches_teams,")")
 
 write.csv(coaches,file="./Output/coaches_alert.csv",row.names = FALSE, fileEncoding="UTF-8")
