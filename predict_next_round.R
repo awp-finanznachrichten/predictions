@@ -24,8 +24,9 @@ data_transfermarkt$target <- gsub(1,"draw",data_transfermarkt$target)
 data_transfermarkt$target <- gsub(0,"win away",data_transfermarkt$target)
 data_transfermarkt$target <- as.factor(data_transfermarkt$target)
 
+
 #Last results
-last_results <- data_transfermarkt[data_transfermarkt$season == season & data_transfermarkt$round == as.numeric(round),c(4:5,55)]
+last_results <- data_transfermarkt[data_transfermarkt$season == season & data_transfermarkt$round == as.numeric(round),c(4:5,ncol(data_transfermarkt))]
 last_results$match <- paste0(last_results$team_home,"-",last_results$team_away)
 last_results <- last_results[,c(4,3)]
 last_results <- last_results[order(last_results$match),]

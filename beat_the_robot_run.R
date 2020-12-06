@@ -5,8 +5,6 @@ tips <- read_csv(tips_path)
 tips <- tips %>%
   distinct(`E-Mail-Adresse`, .keep_all=TRUE)
 
-View(tips)
-
 #Evaluate score of the robot
 compare <- merge(last_results,predictions_robot_old)
 score_robot <- sum(compare$target == compare$Prediction)
@@ -30,20 +28,20 @@ for (i in 1:nrow(tips)) {
     tips$score[i] <- tips$score[i] + 1 
   }
   
-  if (as.character(tips[i,8]) == as.character(last_results[3,2])) {
+  if (as.character(tips[i,6]) == as.character(last_results[3,2])) {
     
     tips$score[i] <- tips$score[i] + 1 
   }
   
-  #if (as.character(tips[i,7]) == as.character(last_results[4,2])) {
+  if (as.character(tips[i,7]) == as.character(last_results[4,2])) {
     
-  # tips$score[i] <- tips$score[i] + 1 
-  #}
+   tips$score[i] <- tips$score[i] + 1 
+  }
 
-  #if (as.character(tips[i,8]) == as.character(last_results[5,2])) {
+  if (as.character(tips[i,8]) == as.character(last_results[5,2])) {
     
-  #  tips$score[i] <- tips$score[i] + 1 
-  #}
+    tips$score[i] <- tips$score[i] + 1 
+  }
 
 
   if (tips$score[i] > score_robot) {
@@ -71,7 +69,6 @@ print(tips)
 
 #Save data of round
 save(tips,file=paste0("BeatTheRobot/tips_",round,".Rda"))
-
 
 #Create "Hallo of Fame" with all winners
 hall_of_fame <- data.frame(tips[tips$won == 1,c(4,9:10)])
