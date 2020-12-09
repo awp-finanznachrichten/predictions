@@ -14,8 +14,8 @@ predictions_robot_old <- read_csv("Output/predictions_SwissFootyBot.csv")
 source("getting_ids.R", encoding = "UTF-8")
 
 #Adaptions
-games <- games[c(2,3,5)]
-missing_matches <- c(3481295,3432767,3432768,3432779,3432782,3432783)
+games <- c(3432767,3432768,3432779)
+missing_matches <- c(3481295,3432782,3432783)
 new_matches[(length(new_matches)+1):(length(new_matches)+length(missing_matches))] <- missing_matches
 
 #Get Elo-Daten
