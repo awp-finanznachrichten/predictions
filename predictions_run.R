@@ -3,8 +3,8 @@ source("config.R")
 
 #Season, played Round and tips from players
 season <- "20/21"
-round <- "10"
-tips_path <- "BeatTheRobot/Beat the robot - Round 10 (Antworten) - Formularantworten 1.csv"
+round <- "12"
+tips_path <- "BeatTheRobot/Beat the robot - Round 12 (Antworten) - Formularantworten 1.csv"
 tips <- read_csv(tips_path)
 
 #Get old predictions of robot
@@ -14,7 +14,7 @@ predictions_robot_old <- read_csv("Output/predictions_SwissFootyBot.csv")
 source("getting_ids.R", encoding = "UTF-8")
 
 #Adaptions
-games <- c(3432767,3432768,3432779)
+#games <- c(3432767,3432768,3432779)
 missing_matches <- c(3481295,3432782,3432783)
 new_matches[(length(new_matches)+1):(length(new_matches)+length(missing_matches))] <- missing_matches
 
