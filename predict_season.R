@@ -8,6 +8,7 @@ X_season <- X[,-c(1:2)]
 #Get needed data from upcoming matches
 new_games <- upcoming_matches[,c(2:3,12:21)]
 
+
 ###Start learning process
 for (a in 1:50) {
 
