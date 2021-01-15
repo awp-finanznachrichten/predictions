@@ -10,10 +10,9 @@ ids_id <- webpage %>%
 ids <- data.frame(ids_id)
 ids$check <- grepl("spielbericht",ids$ids_id)
 
-
 ids <- na.omit(ids[ids$check == TRUE,])
 
-new_matches <- as.integer(gsub("[^[:digit:].]", "",ids$ids_id))
+new_matches <- as.integer(gsub(".*spielbericht/", "",ids$ids_id))
 
 played_matches <- (as.numeric(round))*5
 

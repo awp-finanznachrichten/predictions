@@ -66,14 +66,14 @@ season_prognosis <- season_prognosis[-1,]
 
 
 #Create table
-table <- as.data.frame(round(colMeans(season_prognosis)*2)) #Mal 2 in Hinrunde
+table <- as.data.frame(round(colMeans(season_prognosis))) #Mal 2 in Hinrunde
 table$quantile_low <- 0
 table$quantile_high <- 0
 
 for (i in 1:ncol(season_prognosis)) {
   
-  table$quantile_low[i] <- round(quantile(season_prognosis[,i],0.025)*2)
-  table$quantile_high[i] <- round(quantile(season_prognosis[,i],0.975)*2)
+  table$quantile_low[i] <- round(quantile(season_prognosis[,i],0.025))
+  table$quantile_high[i] <- round(quantile(season_prognosis[,i],0.975))
   
 }
 

@@ -13,6 +13,7 @@ predictions_robot_old <- read_csv("Output/predictions_SwissFootyBot.csv")
 #Get Recently played matches and upcoming matches
 source("getting_ids.R", encoding = "UTF-8")
 
+
 #Adaptions
 #games <- c(3432767,3432768,3432779)
 missing_matches <- c(3481295,3432782,3432783)
