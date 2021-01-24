@@ -18,6 +18,7 @@ source("getting_ids.R", encoding = "UTF-8")
 games <- c(3432805,3432806,3432809)
 missing_matches <- c(3432807,3432808)
 new_matches[(length(new_matches)+1):(length(new_matches)+length(missing_matches))] <- missing_matches
+new_matches <- new_matches[-16] #3506413
 
 #Get Elo-Daten
 source("get_elodata.R", encoding = "UTF-8")
