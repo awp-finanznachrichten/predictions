@@ -31,15 +31,15 @@ for (i in 1:nrow(tips)) {
     tips$score[i] <- tips$score[i] + 1 
   }
   
-  if (as.character(tips[i,7]) == as.character(last_results[3,2])) {
+  if (as.character(tips[i,6]) == as.character(last_results[3,2])) {
     
     tips$score[i] <- tips$score[i] + 1 
   }
   
-#  if (as.character(tips[i,7]) == as.character(last_results[4,2])) {
+  if (as.character(tips[i,8]) == as.character(last_results[4,2])) {
     
-#   tips$score[i] <- tips$score[i] + 1 
-#  }
+   tips$score[i] <- tips$score[i] + 1 
+  }
 
 #  if (as.character(tips[i,8]) == as.character(last_results[5,2])) {
     
@@ -69,8 +69,6 @@ tips$fail <- nrow(last_results)-tips$score
 
 print(paste0(nrow(tips)," tips detected"))
 print(tips)
-
-View(tips)
 
 #Save data of round
 save(tips,file=paste0("BeatTheRobot/tips_",round,".Rda"))
