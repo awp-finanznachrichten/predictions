@@ -15,7 +15,7 @@ source("getting_ids.R", encoding = "UTF-8")
 
 
 #Adaptions
-games <- games[-1]
+#games <- games[-1]
 missing_matches <- c(3432807,3432808,3432812,3432813,3496601,3432818)
 new_matches[(length(new_matches)+1):(length(new_matches)+length(missing_matches))] <- missing_matches
 new_matches <- new_matches[-1] #3506413

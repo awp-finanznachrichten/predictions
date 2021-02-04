@@ -9,7 +9,6 @@ tips <- tips %>%
 compare <- merge(last_results,predictions_robot_old)
 score_robot <- sum(compare$target == compare$Prediction)
 
-
 #Evaluate scores of the players
 tips$score <- 0
 tips$won <- 0
