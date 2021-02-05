@@ -15,7 +15,6 @@ tips$won <- 0
 tips$lost <- 0
 tips$tie <- 0
 
-View(tips)
 
 
 for (i in 1:nrow(tips)) {
@@ -35,15 +34,15 @@ for (i in 1:nrow(tips)) {
     tips$score[i] <- tips$score[i] + 1 
   }
   
-  if (as.character(tips[i,8]) == as.character(last_results[4,2])) {
+  if (as.character(tips[i,7]) == as.character(last_results[4,2])) {
     
    tips$score[i] <- tips$score[i] + 1 
   }
 
-#  if (as.character(tips[i,8]) == as.character(last_results[5,2])) {
+  if (as.character(tips[i,8]) == as.character(last_results[5,2])) {
     
-#    tips$score[i] <- tips$score[i] + 1 
-#  }
+    tips$score[i] <- tips$score[i] + 1 
+  }
 
 
   if (tips$score[i] > score_robot) {
@@ -231,3 +230,4 @@ leaderboard_dw$`Your Twitter account (optional)`[leaderboard_dw$`Your Twitter ac
 write.csv(leaderboard_dw,file="Output/Leaderboard_BeatTheRobot.csv",row.names = FALSE, fileEncoding = "UTF-8")
 
 print(leaderboard_dw)
+
