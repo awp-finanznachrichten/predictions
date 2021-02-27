@@ -1,13 +1,13 @@
-🤖BEAT THE ROBOT: RESULTS ROUND 1🤖
+🤖BEAT THE ROBOT: RESULTS ROUND 21🤖
 
-SwissFootyBot guessed 4 matches correctly!
-YB-FCZ: win home🟢
-FCB-VAD: win home🟢
-LAU-SER: win away❌
-LUG-FCL: win home🟢
-FCSG-Sion: win home🟢
+SwissFootyBot guessed 1 match correctly!
+YB-SER: win home✔️
+FCB-LAU: win home❌
+LUG-FCL: win home❌
+VAD-FCSG: win away❌
+VAD-FCSG: win away❌
 
-xx challengers outguessed SwissFootyBot. Congratulations, you made it on the Hall of Fame 🏆
+14 challengers outguessed SwissFootyBot. Congratulations, you made it on the Hall of Fame 🏆
 
 
 🤖LEADERBOARD TOP 20🤖
