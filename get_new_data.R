@@ -24,7 +24,6 @@ colnames(data_transfermarkt_new) <- c("ID","team_home","team_away","team_home_ra
                                   "shots_missed_home","shots_missed_away","shots_hold_home","shots_hold_away",
                                   "corner_home","corner_away","freekicks_home","freekicks_away",
                                   "fouls_home","fouls_away","offside_home","offside_away","coach_home","coach_away")
-
 for (i in games) {
   
   url <- paste0("https://www.transfermarkt.ch/fc-sion_fc-basel-1893/statistik/spielbericht/",i)
@@ -59,20 +58,20 @@ for (i in games) {
   
   shots_overall_home <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[1])
   shots_overall_away <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[2])
-  shots_target_home <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[3])
-  shots_target_away <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[4])
-  shots_missed_home <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[5])
-  shots_missed_away <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[6])
-  shots_hold_home <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[7])
-  shots_hold_away <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[8])
-  corner_home <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[9])
-  corner_away <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[10])
-  freekicks_home <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[11])
-  freekicks_away <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[12])
-  fouls_home <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[13])
-  fouls_away <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[14])
-  offside_home <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[15])
-  offside_away <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[16])
+  shots_missed_home <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[3])
+  shots_missed_away <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[4])
+  shots_target_home <- shots_overall_home - shots_missed_home
+  shots_target_away <- shots_overall_away - shots_missed_away
+  shots_hold_home <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[5])
+  shots_hold_away <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[6])
+  corner_home <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[7])
+  corner_away <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[8])
+  freekicks_home <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[9])
+  freekicks_away <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[10])
+  fouls_home <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[11])
+  fouls_away <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[12])
+  offside_home <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[13])
+  offside_away <- as.numeric(html_text(html_nodes(webpage,".sb-statistik-zahl"))[14])
   
   #Coaches
   coach_home <- coaches[coaches$coaches_teams == team_home,1]

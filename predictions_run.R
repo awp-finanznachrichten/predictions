@@ -3,8 +3,8 @@ source("config.R")
 
 #Season, played Round and tips from players
 season <- "20/21"
-round <- "24"
-tips_path <- "BeatTheRobot/Beat the robot - Round 24 (Antworten) - Formularantworten 1.csv"
+round <- "25"
+tips_path <- "BeatTheRobot/Beat the robot - Round 25 (Antworten) - Formularantworten 1.csv"
 tips <- read_csv(tips_path)
 
 #Get old predictions of robot
@@ -51,3 +51,8 @@ source("predictions_fans.R", encoding = "UTF-8")
 
 #Evaluate current round
 source("beat_the_robot_run.R", encoding = "UTF-8")
+
+
+
+#Make Commit
+source("commit.R", encoding = "UTF-8")
