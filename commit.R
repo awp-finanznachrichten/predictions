@@ -36,8 +36,11 @@ gitpush <- function(dir = getwd()){
 }
 
 #Make Commit
-git2r::config(user.name = "awp-finanznachrichten",user.email = "sw@awp.ch")
+token <- "d2663c9fbcbfb58cf36d0c4a4f2d210a58d136dd"
+#git2r::config(user.name = "awp-finanznachrichten",user.email = "sw@awp.ch")
+git2r::cred_token(token)
 gitadd()
 gitcommit()
 gitpush()
+
 
